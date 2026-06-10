@@ -5,11 +5,12 @@ extends Control
 const SCREEN_SIZE: Vector2i = Vector2i(
 	480,
 	720
-) * 0.5;
+);
 
 const AUTO_SCALE := true;
 
 
+@warning_ignore( "unused_private_class_variable" )
 @onready var _bg_root: Control = %BackgroundRoot;
 @onready var _subviewport_container: SubViewportContainer = %SubViewportContainer;
 @onready var _subviewport: SubViewport = %SubViewport;
@@ -23,10 +24,17 @@ func _ready() -> void:
 	if ( Engine.is_editor_hint() ):
 		return;
 	
+	_resize_game_window();
+	
 	get_window().size_changed.connect( _on_window_size_changed );
 
 
 func _resize_game_window() -> void:
+	
+	if ( Settings.force_int_scale > 0 ):
+		
+		_subviewport_container.custom_minimum_size = SCREEN_SIZE * Settings.force_int_scale;
+		return;
 	
 	var new_scale := SCREEN_SIZE;
 	

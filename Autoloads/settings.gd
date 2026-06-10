@@ -17,6 +17,6 @@ var integer_scaling_enabled: bool = true;
 
 ## If above 0, force the game window to be that int scale, ignoring
 ## display window size.
-var force_int_scale: int = 0;
+var force_int_scale: int = 2;
 
 #endregion Display
