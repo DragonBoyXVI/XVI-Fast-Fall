@@ -24,6 +24,10 @@ window/size/viewport_height=1080
 
 project/assembly_name="Fast Fall"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/xvi_translation_importer/plugin.cfg", "res://addons/xvi_utilities/plugin.cfg")
+
 [physics]
 
 2d/run_on_separate_thread=true
