@@ -1,10 +1,14 @@
 [gd_scene format=3 uid="uid://dbabhyeg4yul8"]
 
 [ext_resource type="Texture2D" uid="uid://c80tl3fmvq40l" path="res://icon.svg" id="1_dxppu"]
+[ext_resource type="Texture2D" uid="uid://b5ribwh1tf45n" path="res://addons/xvi_utilities/Assets/Images/brick.png" id="2_gy3sr"]
 
 [node name="TestWorld" type="Node2D" unique_id=1012826682]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2034879615]
-position = Vector2(366, 547)
-scale = Vector2(5.78125, 8.671875)
+position = Vector2(238.5, 357.50003)
+scale = Vector2(3.7890625, 5.710938)
 texture = ExtResource("1_dxppu")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=619872444]
+texture = ExtResource("2_gy3sr")
