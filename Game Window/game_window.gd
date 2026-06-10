@@ -2,10 +2,10 @@
 extends Control
 
 
-const SCREEN_SIZE := Vector2i(
+const SCREEN_SIZE: Vector2i = Vector2i(
 	480,
 	720
-);
+) * 0.5;
 
 const AUTO_SCALE := true;
 
@@ -26,18 +26,48 @@ func _ready() -> void:
 	get_window().size_changed.connect( _on_window_size_changed );
 
 
-func _on_window_size_changed() -> void:
+func _resize_game_window() -> void:
 	
 	var new_scale := SCREEN_SIZE;
-	var scale_factor := 1;
-	var window := get_window();
-	while true:
+	
+	if ( Settings.integer_scaling_enabled ):
 		
-		scale_factor += 1;
-		var next_scale := SCREEN_SIZE * scale_factor;
-		if ( next_scale.x > window.size.x or next_scale.y > window.size.y ):
-			break
+		var scale_factor := 1;
+		var window := get_window();
+		while true:
+			
+			scale_factor += 1;
+			var next_scale := SCREEN_SIZE * scale_factor;
+			if ( next_scale.x > window.size.x or next_scale.y > window.size.y ):
+				break
+			else:
+				new_scale = next_scale;
+	else:
+		
+		var window := get_window();
+		var aspect_from_y := SCREEN_SIZE.y / float( SCREEN_SIZE.x );
+		var window_side_from_y := floori( window.size.x * aspect_from_y );
+		
+		if ( window.size.x > window.size.y or window_side_from_y > window.size.y ):
+			new_scale = Vector2i(
+				floori( window.size.y * SCREEN_SIZE.aspect() ),
+				window.size.y
+			);
 		else:
-			new_scale = next_scale;
+			new_scale = Vector2i(
+				window.size.x,
+				window_side_from_y
+			);
+		
+		pass
 	
 	_subviewport_container.custom_minimum_size = new_scale;
+
+
+func _on_settings_changed() -> void:
+	
+	_resize_game_window();
+
+func _on_window_size_changed() -> void:
+	
+	_resize_game_window();
