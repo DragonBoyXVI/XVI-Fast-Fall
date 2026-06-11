@@ -2,14 +2,6 @@
 extends Control
 
 
-const SCREEN_SIZE: Vector2i = Vector2i(
-	480,
-	720
-);
-
-const AUTO_SCALE := true;
-
-
 @warning_ignore( "unused_private_class_variable" )
 @onready var _bg_root: Control = %BackgroundRoot;
 @onready var _subviewport_container: SubViewportContainer = %SubViewportContainer;
@@ -18,8 +10,8 @@ const AUTO_SCALE := true;
 
 func _ready() -> void:
 	
-	_subviewport_container.custom_minimum_size = SCREEN_SIZE;
-	_subviewport.size_2d_override = SCREEN_SIZE;
+	_subviewport_container.custom_minimum_size = Consts.SCREEN_SIZE;
+	_subviewport.size_2d_override = Consts.SCREEN_SIZE;
 	
 	if ( Engine.is_editor_hint() ):
 		return;
@@ -33,10 +25,10 @@ func _resize_game_window() -> void:
 	
 	if ( Settings.force_int_scale > 0 ):
 		
-		_subviewport_container.custom_minimum_size = SCREEN_SIZE * Settings.force_int_scale;
+		_subviewport_container.custom_minimum_size = Consts.SCREEN_SIZE * Settings.force_int_scale;
 		return;
 	
-	var new_scale := SCREEN_SIZE;
+	var new_scale := Consts.SCREEN_SIZE;
 	
 	if ( Settings.integer_scaling_enabled ):
 		
@@ -45,7 +37,7 @@ func _resize_game_window() -> void:
 		while true:
 			
 			scale_factor += 1;
-			var next_scale := SCREEN_SIZE * scale_factor;
+			var next_scale := Consts.SCREEN_SIZE * scale_factor;
 			if ( next_scale.x > window.size.x or next_scale.y > window.size.y ):
 				break
 			else:
@@ -53,12 +45,12 @@ func _resize_game_window() -> void:
 	else:
 		
 		var window := get_window();
-		var aspect_from_y := SCREEN_SIZE.y / float( SCREEN_SIZE.x );
+		var aspect_from_y := Consts.SCREEN_SIZE.y / float( Consts.SCREEN_SIZE.x );
 		var window_side_from_y := floori( window.size.x * aspect_from_y );
 		
 		if ( window.size.x > window.size.y or window_side_from_y > window.size.y ):
 			new_scale = Vector2i(
-				floori( window.size.y * SCREEN_SIZE.aspect() ),
+				floori( window.size.y * Consts.SCREEN_SIZE.aspect() ),
 				window.size.y
 			);
 		else:

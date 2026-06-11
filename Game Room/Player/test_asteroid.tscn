@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://crvrx5tjappto"]
+
+[ext_resource type="Script" uid="uid://bltotxms58nyn" path="res://Game Room/Enemies/Test Asteriod/test_asteroid.gd" id="1_47rly"]
+[ext_resource type="Shader" uid="uid://bi2taa4hnunqs" path="res://addons/xvi_utilities/Assets/Shaders/canvas_animation.gdshader" id="2_1xd7k"]
+[ext_resource type="Texture2D" uid="uid://c80tl3fmvq40l" path="res://icon.svg" id="3_3ys4g"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cjdn4"]
+shader = ExtResource("2_1xd7k")
+shader_parameter/speed = 1.0
+shader_parameter/time_offset = 0.0
+shader_parameter/rotate_speed = 1.0
+shader_parameter/rotate_offset = 0.0
+shader_parameter/wave_speed = Vector2(1, 1)
+shader_parameter/wave_offset = 0.0
+shader_parameter/wave_amplitude = Vector2(0, 0)
+shader_parameter/wave_offset_per_vertex = 5.0
+shader_parameter/pulse_speed = Vector2(1, 1)
+shader_parameter/pulse_offset = 0.0
+shader_parameter/pulse_amplitude = Vector2(0, 0)
+shader_parameter/palette_enabled = false
+
+[node name="TestAsteroid" type="Node2D" unique_id=767984111]
+script = ExtResource("1_47rly")
+metadata/_custom_type_script = "uid://bltotxms58nyn"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1228126466]
+modulate = Color(1, 0, 0, 1)
+material = SubResource("ShaderMaterial_cjdn4")
+texture = ExtResource("3_3ys4g")

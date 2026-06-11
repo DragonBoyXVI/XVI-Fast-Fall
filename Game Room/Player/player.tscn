@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://pcyruwqk6run"]
+
+[ext_resource type="Script" uid="uid://dtyy5xukw78mc" path="res://Game Room/Player/player.gd" id="1_54f31"]
+[ext_resource type="Texture2D" uid="uid://c80tl3fmvq40l" path="res://icon.svg" id="2_8ft5v"]
+
+[node name="Player" type="Node2D" unique_id=164919137]
+script = ExtResource("1_54f31")
+metadata/_custom_type_script = "uid://dtyy5xukw78mc"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=847943687]
+texture = ExtResource("2_8ft5v")

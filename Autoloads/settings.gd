@@ -13,10 +13,10 @@ const DISPLAY := "Display";
 ## amount hat fits within the current window size.[br]
 ## If false, the game window will always take up as much space as possible,
 ## with potential stretching issues.
-var integer_scaling_enabled: bool = true;
+var integer_scaling_enabled: bool = false;
 
 ## If above 0, force the game window to be that int scale, ignoring
 ## display window size.
-var force_int_scale: int = 2;
+var force_int_scale: int = -1;
 
 #endregion Display
