@@ -2,10 +2,24 @@
 
 [ext_resource type="Script" uid="uid://dtyy5xukw78mc" path="res://Game Room/Player/player.gd" id="1_54f31"]
 [ext_resource type="Texture2D" uid="uid://c80tl3fmvq40l" path="res://icon.svg" id="2_8ft5v"]
+[ext_resource type="Script" uid="uid://d27j3o23jem33" path="res://Game Room/Components/Hitbox/hitbox.gd" id="3_8ft5v"]
 
-[node name="Player" type="Node2D" unique_id=164919137]
+[sub_resource type="CircleShape2D" id="CircleShape2D_q2v6t"]
+radius = 24.0
+
+[node name="Player" type="Node2D" unique_id=164919137 node_paths=PackedStringArray("_hitbox")]
 script = ExtResource("1_54f31")
+_hitbox = NodePath("Hitbox")
 metadata/_custom_type_script = "uid://dtyy5xukw78mc"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=847943687]
 texture = ExtResource("2_8ft5v")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=668514531]
+script = ExtResource("3_8ft5v")
+_team = 1
+metadata/_custom_type_script = "uid://d27j3o23jem33"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=166422819]
+shape = SubResource("CircleShape2D_q2v6t")
+debug_color = Color(0, 0, 1, 0.625)

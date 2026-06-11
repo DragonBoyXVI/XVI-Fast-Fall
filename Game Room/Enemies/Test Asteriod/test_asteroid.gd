@@ -6,6 +6,9 @@ class_name TestAsteroid;
 const _SPEED = 200;
 
 
+@export var _hurtbox: Hurtbox;
+
+
 func _ready() -> void:
 	
 	if ( Engine.is_editor_hint() ):
@@ -15,6 +18,8 @@ func _ready() -> void:
 	
 	global_position.y = Consts.SCREEN_SIZE.y;
 	global_position.x = Consts.SCREEN_SIZE.x * randf();
+	
+	_hurtbox.hitbox_entered.connect( _on_hurtbox_hitbox_entered );
 
 func _physics_process( delta: float ) -> void:
 	
@@ -24,3 +29,7 @@ func _physics_process( delta: float ) -> void:
 	
 	var move_dist: float = _SPEED * delta;
 	position.y -= move_dist;
+
+
+func _on_hurtbox_hitbox_entered( hitbox: Hitbox ) -> void:
+	hitbox.take_damage( Damage.new( 1 ) );
