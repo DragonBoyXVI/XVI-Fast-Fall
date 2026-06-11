@@ -1,4 +1,20 @@
 # Fast Fall
 
 
-# Game Window
+# To do!
+
+-- Bullet engine
+
+-- Player abilities
+
+-- Enemy Spawning system
+
+-- Game over screen
+
+-- Score screen
+
+-- Area transition
+
+-- Player upgrades
+
+-- Shop?
