@@ -71,6 +71,11 @@ Special={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="Player Hitbox"
+2d_physics/layer_2="Enemy Hitbox"
+
 [physics]
 
 2d/run_on_separate_thread=true
