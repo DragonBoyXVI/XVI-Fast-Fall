@@ -6,14 +6,7 @@ class_name Bullet;
 ## dogagedi
 
 
-enum Target {
-	PLAYER = 1,
-	ENEMY = 2,
-	
-	ALL = PLAYER | ENEMY,
-}
-
-var target: Target = Target.ALL;
+var team := Consts.Team.ALL;
 
 ## Transform for global coords and rotation
 var transform := Transform2D.IDENTITY;

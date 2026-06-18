@@ -37,23 +37,6 @@ func _draw() -> void:
 		return;
 
 
-func _input(event: InputEvent) -> void:
-	if ( event is InputEventKey ):
-		
-		var count := 1;
-		if ( event.shift_pressed ): count = 100;
-		for _i in count:
-			
-			var bullet := BulletStandard.new();
-			
-			bullet.target = Bullet.Target.ALL;
-			
-			bullet.transform = Transform2D.IDENTITY.rotated( TAU * randf() );
-			bullet.transform.origin = get_global_mouse_position();
-			
-			Radio.fire_bullet( bullet );
-
-
 func pause() -> void:
 	process_mode = Node.PROCESS_MODE_DISABLED;
 

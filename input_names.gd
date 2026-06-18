@@ -4,6 +4,7 @@ extends Object;
 class_name InputNames;
 
 
+# Arrows
 const Move: Dictionary[ String, StringName ] = {
 	"UP": &"Move Up",
 	"RIGHT": &"Move Right",
@@ -19,3 +20,5 @@ const ENTER := &"Enter";
 const BACK := &"Back";
 # C
 const SPECIAL := &"Special";
+# Shift
+const SLOW := &"Slow";

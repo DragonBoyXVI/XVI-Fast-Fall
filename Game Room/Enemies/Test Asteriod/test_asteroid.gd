@@ -38,3 +38,4 @@ func _on_hitbox_took_damage( _dmg: Damage ) -> void:
 
 func _on_hurtbox_hitbox_entered( hitbox: Hitbox ) -> void:
 	hitbox.take_damage( Damage.new( 1 ) );
+	queue_free();

@@ -10,8 +10,8 @@ const _shape_med: CircleShape2D = preload( "uid://bgyea2lodxcd4" );
 
 
 var texture: Texture2D = preload( "res://addons/xvi_utilities/Assets/Script Icons/state_machine_node.atlastex" );
-var speed = 200;
-var shape = _shape_med:
+var speed := 200.0;
+var shape := _shape_med:
 	get: return shape.duplicate() if shape else null;
 
 var max_collisions: int = 1;
@@ -39,10 +39,10 @@ func process( world: World2D, delta: float ) -> void:
 	if ( _first_process ):
 		_first_process = false;
 		
-		if ( target & Target.PLAYER ):
-			_collision_mask |= Consts.Collision.PLAYER_HITBOX;
-		if ( target & Target.ENEMY ):
+		if ( team & Consts.Team.PLAYER ):
 			_collision_mask |= Consts.Collision.ENEMY_HITBOX;
+		if ( team & Consts.Team.ENEMY ):
+			_collision_mask |= Consts.Collision.PLAYER_HITBOX;
 	
 	var query := PhysicsShapeQueryParameters2D.new();
 	query.collide_with_areas = true;
@@ -76,7 +76,7 @@ func draw( draw_node: Node2D ) -> void:
 		
 		_texture_offset = texture.get_size() * 0.5;
 		
-		if ( target & Target.PLAYER ):
+		if ( team & Consts.Team.ENEMY ):
 			_texture_color = Color.RED;
 		else:
 			_texture_color = Color.BLUE;

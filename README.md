@@ -5,13 +5,16 @@
 
 -- Bullet engine
 - What do bullets do?
-have a position
-have collision
-disapear when hitting something or going off map
-some may need to have special properties, visuals or behaviours
-how many bullets could there be at once? Possibly over 100 at most.,.
+X have a position
+X have collision
+X disapear when hitting something or going off map
+X some may need to have special properties, visuals or behaviours
+X how many bullets could there be at once? Possibly over 100 at most.,.
 
 -- Player abilities
+X Shoot bullets (duh)
+dash for iframes?
+powerups and upgrades.,.,
 
 -- Enemy Spawning system
 

@@ -38,3 +38,12 @@ static func _editor_layer_names() -> void:
 	const PATH := "layer_names/2d_physics/layer_%s";
 	ProjectSettings.set_setting( PATH % 1, "Player Hitbox" );
 	ProjectSettings.set_setting( PATH % 2, "Enemy Hitbox" );
+
+enum Team {
+	NONE = 0,
+	
+	PLAYER = 1<<0,
+	ENEMY = 1<<1,
+	
+	ALL = 0b11,
+}
