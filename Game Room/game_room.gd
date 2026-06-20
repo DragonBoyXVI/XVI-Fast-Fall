@@ -8,7 +8,7 @@ const _PLAYER_SPAWN_POINT := Vector2( 0.5, 0.2 ) * Vector2( Consts.SCREEN_SIZE )
 const _PLAYER_SCENE: PackedScene = preload( "res://Game Room/Player/player.tscn" );
 
 
-var _player: Player;
+var _player: Node2D;
 
 
 func _ready() -> void:

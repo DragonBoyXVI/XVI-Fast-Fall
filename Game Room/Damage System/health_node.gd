@@ -19,12 +19,22 @@ signal died();
 
 
 @export_group( "Health" )
+## Used only for drawing health states in the editor
+@export_custom( PROPERTY_HINT_RANGE, "0.0,1.0,0.01", PROPERTY_USAGE_EDITOR ) var _draw_perc := 0.5:
+	set( new ):
+		_current_health = roundi( _max_health * new );
+		_draw_perc = new;
 ## Base unmodified health for this instance.
 @export var _max_health: int = 5:
 	set( new ):
 		_max_health = maxi( 1, new );
 		emit_health_changed()
 		queue_redraw();
+## If greater than 0, _max_health will be randomized using randfn.
+## This is the deviation, and _max_health is the standard.
+@export var _health_deviation := 0.0:
+	set( new ):
+		_health_deviation = absf( new );
 
 @export_group( "Drawing" )
 ## Health bar displacement.
@@ -57,6 +67,12 @@ var _current_health: int:
 
 func _ready() -> void:
 	
+	if ( Engine.is_editor_hint() ):
+		return;
+	
+	if ( _health_deviation > 0.0 ):
+		_max_health = roundi( randfn( _max_health, _health_deviation ) );
+	
 	_current_health = _max_health;
 
 func _validate_property( property: Dictionary ) -> void:
@@ -77,9 +93,11 @@ func _draw() -> void:
 	draw_rect( rect, color );
 
 
-## Deal damage to this node.
 func take_damage( dmg: Damage ) -> void:
 	_current_health -= dmg.amount;
+
+func take_heal( heal: Heal ) -> void:
+	_current_health = mini( _current_health + heal.amount, _max_health );
 
 ## Returns health as a float between 0 - 1.
 func get_as_percent() -> float:

@@ -9,19 +9,13 @@ class_name Hurtbox;
 
 const _DEBUG_COLOR := Color(1.0, 0.0, 0.0, 0.625);
 
-enum _Flag {
-	NONE = 0,
-	PLAYER = 1<<0,
-	ENEMY = 1<<1,
-}
-
 
 ## Emitted when a valid hitbox enters this area.
 signal hitbox_entered( hitbox: Hitbox );
 
 
 ## What team(s) this targets and deals damage to.
-@export_flags( "Player", "Enemy" ) var _target: int = _Flag.PLAYER;
+@export var _target := Consts.Team.PLAYER;
 
 
 func _init() -> void:
@@ -40,9 +34,9 @@ func _ready() -> void:
 	if ( Engine.is_editor_hint() ):
 		return;
 	
-	if ( _target & _Flag.PLAYER ):
+	if ( _target & Consts.Team.PLAYER ):
 		collision_mask |= Consts.Collision.PLAYER_HITBOX;
-	if ( _target & _Flag.ENEMY ):
+	if ( _target & Consts.Team.ENEMY ):
 		collision_mask |= Consts.Collision.ENEMY_HITBOX;
 
 func _shape_entered_tree( shape: CollisionShape2D ) -> void:

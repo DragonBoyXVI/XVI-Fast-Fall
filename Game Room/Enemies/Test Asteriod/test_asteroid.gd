@@ -3,12 +3,13 @@ extends Node2D;
 class_name TestAsteroid;
 
 
-const _SPEED = 200;
-
-
 @export var _hitbox: Hitbox;
 @export var _hurtbox: Hurtbox;
 
+
+func _init() -> void:
+	
+	z_index = Consts.ZLayers.ENEMIES;
 
 func _ready() -> void:
 	
@@ -23,14 +24,10 @@ func _ready() -> void:
 	_hitbox.took_damage.connect( _on_hitbox_took_damage );
 	_hurtbox.hitbox_entered.connect( _on_hurtbox_hitbox_entered );
 
-func _physics_process( delta: float ) -> void:
+func _physics_process( _delta: float ) -> void:
 	
 	if ( position.y < 0.0 ):
 		queue_free();
-		return;
-	
-	var move_dist: float = _SPEED * delta;
-	position.y -= move_dist;
 
 
 func _on_hitbox_took_damage( _dmg: Damage ) -> void:

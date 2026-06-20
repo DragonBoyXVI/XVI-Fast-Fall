@@ -6,14 +6,20 @@ class_name Shooter;
 const _DEBUG_ARROW_DIST := 32.0;
 
 
+## Team of the spawned bulled.
 @export var _team := Consts.Team.ENEMY;
+## The direction the bullet is shot in. Drawn as a red line in editor.
 @export_range( 0.0, 360.0, 1.0, "radians_as_degrees" ) var _shoot_dir: float = 0.0:
 	set( new ):
 		_shoot_dir = new;
 		queue_redraw();
+## Damage the bullet deals.
 @export var _damage: int = 1;
+## How much time must pass before you can shoot again.
 @export var _seconds_per_shot: float = 0.25;
+## How fast the bullet travels in pix/sec.
 @export var _bullet_speed: float = 600.0;
+## How many times this bullet can deal damage before disapearing.
 @export var _bullet_collisions: int = 1:
 	set( new ):
 		_bullet_collisions = maxi( 1, new );
