@@ -23,7 +23,7 @@ signal died();
 @export_custom( PROPERTY_HINT_RANGE, "0.0,1.0,0.01", PROPERTY_USAGE_EDITOR ) var _draw_perc := 0.5:
 	set( new ):
 		_current_health = roundi( _max_health * new );
-		_draw_perc = new;
+		_draw_perc = get_as_percent();
 ## Base unmodified health for this instance.
 @export var _max_health: int = 5:
 	set( new ):

@@ -17,7 +17,6 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Settings="*uid://ukwqsi51rqel"
 Radio="*uid://de41vfv2wjn0k"
 
 [debug]

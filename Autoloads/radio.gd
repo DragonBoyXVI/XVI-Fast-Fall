@@ -5,6 +5,14 @@ extends Node
 
 #endregion Game State
 
+#region Settings
+
+signal settings_changed();
+func emit_settings_changed() -> void:
+	settings_changed.emit();
+
+#endregion Settings
+
 #region Bullets
 
 signal bullet_fired( bullet: Bullet );
