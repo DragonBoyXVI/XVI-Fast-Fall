@@ -22,3 +22,5 @@ const BACK := &"Back";
 const SPECIAL := &"Special";
 # Shift
 const SLOW := &"Slow";
+# P
+const PAUSE := &"Pause";

@@ -1,6 +1,6 @@
 @tool
 extends Node2D;
-class_name GenericShip;
+class_name Player;
 
 
 # maybe move shooting here again?

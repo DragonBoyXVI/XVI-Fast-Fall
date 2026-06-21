@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://3m6g8flp4lxj" path="res://Game Window/game_window.gd" id="1_a1ra0"]
 [ext_resource type="Shader" uid="uid://bi2taa4hnunqs" path="res://addons/xvi_utilities/Assets/Shaders/canvas_animation.gdshader" id="1_d3gm6"]
 [ext_resource type="Texture2D" uid="uid://c80tl3fmvq40l" path="res://icon.svg" id="2_dkc24"]
-[ext_resource type="PackedScene" uid="uid://dsiq2e10eli1o" path="res://Game Room/game_room.tscn" id="4_a1ra0"]
+[ext_resource type="PackedScene" uid="uid://c76s60pf1imvp" path="res://Game Root/game_root.tscn" id="4_a1ra0"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_a1ra0"]
 shader = ExtResource("1_d3gm6")
@@ -87,4 +87,4 @@ size_2d_override = Vector2i(480, 720)
 size_2d_override_stretch = true
 render_target_update_mode = 4
 
-[node name="GameRoom" parent="AspectRatioContainer/SubViewportContainer/SubViewport" unique_id=297868296 instance=ExtResource("4_a1ra0")]
+[node name="GameRoot" parent="AspectRatioContainer/SubViewportContainer/SubViewport" unique_id=438966970 instance=ExtResource("4_a1ra0")]

@@ -20,6 +20,24 @@ static var integer_scaling_enabled: bool = false;
 ## display window size.
 static var force_int_scale: int = -1;
 
+## Fullscreen values that are saved to file.
+enum FullscreenMode {
+	WINDOWED,
+	FULLSCREEN,
+	EXCLUSIVE_FULLSCREEN,
+}
+## Sets the fullscreen mode for the master window.
+static var fullscreen_mode: FullscreenMode = FullscreenMode.WINDOWED;
+## Read the tin
+static func fullscreen_mode_as_window_mode( mode: FullscreenMode = fullscreen_mode ) -> Window.Mode:
+	match mode:
+		
+		FullscreenMode.WINDOWED: return Window.MODE_WINDOWED;
+		FullscreenMode.FULLSCREEN: return Window.MODE_FULLSCREEN;
+		FullscreenMode.EXCLUSIVE_FULLSCREEN: return Window.MODE_EXCLUSIVE_FULLSCREEN;
+		
+		_: return Window.MODE_WINDOWED;
+
 #endregion Display
 
 
@@ -42,6 +60,7 @@ static func save_to_file( path: String = DEFAULT_FILE_PATH ) -> void:
 	
 	config_file.set_value( DISPLAY, "integer_scaling_enabled", integer_scaling_enabled );
 	config_file.set_value( DISPLAY, "force_int_scale", force_int_scale );
+	config_file.set_value( DISPLAY, "fullscreen_mode", fullscreen_mode );
 	
 	#endregion Display
 	
@@ -58,5 +77,6 @@ static func load_file( path: String = DEFAULT_FILE_PATH ) -> void:
 	
 	integer_scaling_enabled = config_file.get_value( DISPLAY, "integer_scaling_enabled", integer_scaling_enabled );
 	force_int_scale = config_file.get_value( DISPLAY, "force_int_scale", force_int_scale );
+	fullscreen_mode = config_file.get_value( DISPLAY, "fullscreen_mode", fullscreen_mode );
 	
 	#endregion Display

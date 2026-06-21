@@ -3,6 +3,10 @@ extends Node
 
 #region Game State
 
+signal pause_changed( is_paused: bool );
+func emit_pause_changed( is_paused: bool ) -> void:
+	pause_changed.emit( is_paused );
+
 #endregion Game State
 
 #region Settings

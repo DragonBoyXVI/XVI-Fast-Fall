@@ -8,6 +8,9 @@ extends Control
 @onready var _subviewport: SubViewport = %SubViewport;
 
 
+var _saved_window_mode := Settings.FullscreenMode.WINDOWED;
+
+
 func _ready() -> void:
 	
 	_subviewport_container.custom_minimum_size = Consts.SCREEN_SIZE;
@@ -16,7 +19,7 @@ func _ready() -> void:
 	if ( Engine.is_editor_hint() ):
 		return;
 	
-	Radio.settings_changed.connect( _resize_game_window, CONNECT_DEFERRED );
+	Radio.settings_changed.connect( _on_settings_changed, CONNECT_DEFERRED );
 	_resize_game_window();
 	
 	get_window().size_changed.connect( _on_window_size_changed );
@@ -64,10 +67,18 @@ func _resize_game_window() -> void:
 	
 	_subviewport_container.custom_minimum_size = new_scale;
 
+func _set_fullscreen() -> void:
+	
+	var new_mode := Settings.fullscreen_mode_as_window_mode();
+	if ( _saved_window_mode != new_mode ):
+		
+		get_window().mode = new_mode;
+		_saved_window_mode = Settings.fullscreen_mode;
 
 func _on_settings_changed() -> void:
 	
 	_resize_game_window();
+	_set_fullscreen();
 
 func _on_window_size_changed() -> void:
 	
