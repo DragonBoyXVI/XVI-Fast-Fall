@@ -19,8 +19,13 @@ func _ready() -> void:
 	if ( Engine.is_editor_hint() ):
 		return;
 	
+	
+	Settings.load_file();
+	TranslationImporter.parse_dir_for_files( "res://Translations/" );
+	
+	
 	Radio.settings_changed.connect( _on_settings_changed, CONNECT_DEFERRED );
-	_resize_game_window();
+	_on_settings_changed();
 	
 	get_window().size_changed.connect( _on_window_size_changed );
 

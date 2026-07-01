@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://bptvv215gnetq"]
+
+[ext_resource type="Script" uid="uid://dagwpv0oovbrp" path="res://UI/Custom Nodes/ff_button.gd" id="1_e11wt"]
+
+[node name="PauseMenu" type="Control" unique_id=279421638]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1815440148]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.39215687)
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=939725482]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer" unique_id=1717031366]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/PanelContainer" unique_id=1938439398]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="BoxContainer" type="BoxContainer" parent="CenterContainer/PanelContainer/MarginContainer" unique_id=1452313866]
+layout_mode = 2
+theme_override_constants/separation = 5
+alignment = 1
+vertical = true
+
+[node name="ResumeButton" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/BoxContainer" unique_id=1815936486]
+layout_mode = 2
+text = "KEY_RESUME"
+script = ExtResource("1_e11wt")
+metadata/_custom_type_script = "uid://dagwpv0oovbrp"
+
+[node name="SettingsButton" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/BoxContainer" unique_id=1052115719]
+layout_mode = 2
+text = "KEY_SETTINGS"
+script = ExtResource("1_e11wt")
+metadata/_custom_type_script = "uid://dagwpv0oovbrp"
+
+[node name="MenuButton" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/BoxContainer" unique_id=2138289007]
+layout_mode = 2
+text = "KEY_MAIN_MENU"
+script = ExtResource("1_e11wt")
+metadata/_custom_type_script = "uid://dagwpv0oovbrp"

@@ -71,7 +71,10 @@ static func load_file( path: String = DEFAULT_FILE_PATH ) -> void:
 	var config_file := ConfigFile.new();
 	var err := config_file.load( path );
 	
-	assert( err == OK, error_string( err ) );
+	if ( err != OK ):
+		
+		push_warning( "Settings file not found!" );
+		return;
 	
 	#region Display
 	

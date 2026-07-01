@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://duq4ofxmf7kvi"]
+
+[ext_resource type="Script" uid="uid://mv6kxexvkqby" path="res://Autoloads/global_sfx.gd" id="1_fuja0"]
+[ext_resource type="AudioStream" uid="uid://bvleiytep4bjm" path="res://SFX/Test/test_blip.wav" id="1_v381u"]
+[ext_resource type="AudioStream" uid="uid://baf0bk80ooe1k" path="res://SFX/Test/test_bweh_0.wav" id="3_rs4p7"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ua5yu"]
+random_pitch = 1.005793
+streams_count = 1
+stream_0/stream = ExtResource("1_v381u")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_l237t"]
+random_pitch = 1.005793
+random_volume_offset_db = 0.1
+streams_count = 1
+stream_0/stream = ExtResource("3_rs4p7")
+
+[node name="GlobalSfx" type="Node" unique_id=694708789 node_paths=PackedStringArray("blip_positive", "blip_negative", "misc_blip")]
+script = ExtResource("1_fuja0")
+blip_positive = NodePath("BlipPositive")
+blip_negative = NodePath("BlipNegative")
+misc_blip = NodePath("MiscBlip")
+
+[node name="BlipPositive" type="AudioStreamPlayer" parent="." unique_id=1923300414]
+stream = SubResource("AudioStreamRandomizer_ua5yu")
+
+[node name="BlipNegative" type="AudioStreamPlayer" parent="." unique_id=292441513]
+stream = SubResource("AudioStreamRandomizer_ua5yu")
+pitch_scale = 0.8
+
+[node name="MiscBlip" type="AudioStreamPlayer" parent="." unique_id=801179527]
+stream = SubResource("AudioStreamRandomizer_l237t")
+volume_db = -5.0

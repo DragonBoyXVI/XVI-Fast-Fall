@@ -15,6 +15,10 @@ const SCREEN_SIZE: Vector2i = Vector2i(
 	720
 );
 
+enum Menu {
+	PAUSE,
+}
+
 ## Visual layers for objects to draw on.
 enum ZLayers {
 	BACKGROUNDS = 0,

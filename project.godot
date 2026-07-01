@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Radio="*uid://de41vfv2wjn0k"
 WindowControls="*uid://bqh51l4xupypw"
+GlobalSfx="*uid://duq4ofxmf7kvi"
 
 [debug]
 
@@ -32,10 +33,6 @@ window/size/viewport_height=720
 [dotnet]
 
 project/assembly_name="Fast Fall"
-
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/xvi_translation_importer/plugin.cfg", "res://addons/xvi_utilities/plugin.cfg")
 
 [input]
 

@@ -9,6 +9,14 @@ func emit_pause_changed( is_paused: bool ) -> void:
 
 #endregion Game State
 
+#region Menus
+
+signal menu_requested( menu: Consts.Menu );
+func request_menu( menu: Consts.Menu ) -> void:
+	menu_requested.emit( menu );
+
+#endregion Menus
+
 #region Settings
 
 signal settings_changed();
