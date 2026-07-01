@@ -1,5 +1,8 @@
 [gd_scene format=3 uid="uid://c76s60pf1imvp"]
 
+[ext_resource type="Script" uid="uid://bjnhv1tcbhi37" path="res://Game Root/game_root.gd" id="1_73fyj"]
+
 [node name="GameRoot" type="Node2D" unique_id=438966970]
+script = ExtResource("1_73fyj")
 
 [node name="GUILayer" type="CanvasLayer" parent="." unique_id=366170813]
