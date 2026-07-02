@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dbabhyeg4yul8"]
 
 [ext_resource type="Texture2D" uid="uid://c80tl3fmvq40l" path="res://icon.svg" id="1_dxppu"]
-[ext_resource type="Texture2D" uid="uid://b5ribwh1tf45n" path="res://addons/xvi_utilities/Assets/Images/brick.png" id="2_gy3sr"]
+[ext_resource type="Texture2D" uid="uid://b5ribwh1tf45n" path="res://XVI Assets/Images/Characters/brick.png" id="2_gy3sr"]
 
 [node name="TestWorld" type="Node2D" unique_id=1012826682]
 
