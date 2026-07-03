@@ -2,10 +2,16 @@
 
 [ext_resource type="Script" uid="uid://bjnhv1tcbhi37" path="res://Game Root/game_root.gd" id="1_73fyj"]
 [ext_resource type="PackedScene" uid="uid://bicrm5ngrvenv" path="res://Transitions/Screen Fader/screen_fader.tscn" id="2_1yp6k"]
+[ext_resource type="PackedScene" uid="uid://cxwalfdmj3w3c" path="res://World/Player/player.tscn" id="3_7g0fl"]
 
-[node name="GameRoot" type="Node2D" unique_id=438966970]
+[node name="GameRoot" type="Node2D" unique_id=438966970 node_paths=PackedStringArray("_room")]
 script = ExtResource("1_73fyj")
+_room = NodePath("Room")
 
 [node name="GUILayer" type="CanvasLayer" parent="." unique_id=366170813]
 
 [node name="ScreenFader" parent="GUILayer" unique_id=139784516 instance=ExtResource("2_1yp6k")]
+
+[node name="Room" type="Node2D" parent="." unique_id=1221881208]
+
+[node name="Player" parent="Room" unique_id=1668467487 instance=ExtResource("3_7g0fl")]

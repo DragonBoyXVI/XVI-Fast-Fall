@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cxwalfdmj3w3c"]
+
+[ext_resource type="Script" uid="uid://clcu5d1bffsl3" path="res://World/Player/player.gd" id="1_1s8kg"]
+[ext_resource type="Texture2D" uid="uid://c80tl3fmvq40l" path="res://icon.svg" id="2_6ry63"]
+[ext_resource type="Script" uid="uid://sldksomj6mkv" path="res://World/Movement/player_movement.gd" id="3_6ry63"]
+
+[node name="Player" type="Node2D" unique_id=1668467487]
+script = ExtResource("1_1s8kg")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1264994861]
+texture = ExtResource("2_6ry63")
+
+[node name="PlayerMovement" type="Node" parent="." unique_id=553384971 node_paths=PackedStringArray("_movable_node")]
+script = ExtResource("3_6ry63")
+_movable_node = NodePath("..")
+metadata/_custom_type_script = "uid://sldksomj6mkv"
