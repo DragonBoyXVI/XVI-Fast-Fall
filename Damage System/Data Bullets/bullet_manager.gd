@@ -1,7 +1,9 @@
 @tool
 extends Node2D;
-class_name BulletManager;
+#class_name BulletManager;
 
+
+const Bullet := preload( "res://Damage System/Data Bullets/bullet.gd" );
 
 
 var _physics_bullets: Array[ Bullet ] = [];
@@ -19,9 +21,6 @@ func _ready() -> void:
 		return;
 	
 	Radio.bullet_fired.connect( _on_radio_bullet_fired, CONNECT_DEFERRED );
-
-func _validate_property( property: Dictionary ) -> void:
-	FFFuncs.disable_prop_2ds( property );
 
 func _process( delta: float ) -> void:
 	
