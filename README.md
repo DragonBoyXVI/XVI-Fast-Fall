@@ -23,17 +23,19 @@ X Enemies spawn periodically
 - Entities die after taking too much damage, this is diffrent from
 just despawning it.
 
-- Damage system needs to inform all relivant nodes:
+X Damage system needs to inform all relivant nodes:
 	- what took damage
 	- who did the damage
 	- how much damage was dealt
 	- was that damage fatal
 
+X
 hurtbox detects a hitbox
 hurtbox emits signal that parent or other node catches
 parent node sends a damage event signal over the radio
 hitbox owner recives the radio event and handles it
 
+X
 simplify damage system for now, damage tracking can be hanlded later.
 
 

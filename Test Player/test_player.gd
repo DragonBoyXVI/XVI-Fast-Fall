@@ -96,6 +96,8 @@ func _on_shoot_cooldown_timer_timeout() -> void:
 
 
 func _on_hitbox_took_damage( damage: int ) -> void:
+	if ( _state == PState.DASH ): return;
+	
 	_hp -= damage;
 	if ( _hp <= 0 ):
 		queue_free();

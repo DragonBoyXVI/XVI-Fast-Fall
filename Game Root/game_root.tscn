@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dpf13nllljwxd" path="res://Test Player/test_player.tscn" id="2_1yp6k"]
 [ext_resource type="Script" uid="uid://qy7lruwj6c2m" path="res://Enemy Spawner/enemy_spawner.gd" id="3_s0wd2"]
 [ext_resource type="PackedScene" uid="uid://bjnl3xe46jw16" path="res://Enemy Spawner/test_asteroid.tscn" id="4_nr1of"]
+[ext_resource type="Script" uid="uid://dyg0rf3kql54d" path="res://Damage System/health_node.gd" id="5_nr1of"]
 
 [node name="GameRoot" type="Node2D" unique_id=156443619]
 script = ExtResource("1_73fyj")
@@ -22,3 +23,8 @@ _enemy_scenes = Array[PackedScene]([ExtResource("4_nr1of")])
 metadata/_custom_type_script = "uid://qy7lruwj6c2m"
 
 [node name="ForegroundScene" type="Node2D" parent="." unique_id=1855355030]
+
+[node name="HealthNode" type="Node2D" parent="." unique_id=1816274661]
+script = ExtResource("5_nr1of")
+_bar_enabled = true
+metadata/_custom_type_script = "uid://dyg0rf3kql54d"
