@@ -1,11 +1,17 @@
 [gd_scene format=3 uid="uid://itgnnjb1lts7"]
 
+[ext_resource type="Script" uid="uid://bgvmfmwbh4t08" path="res://Game Root/game_root.gd" id="1_73fyj"]
+[ext_resource type="PackedScene" uid="uid://dpf13nllljwxd" path="res://Test Player/test_player.tscn" id="2_1yp6k"]
+
 [node name="GameRoot" type="Node2D" unique_id=156443619]
+script = ExtResource("1_73fyj")
 
 [node name="UICanvasLayer" type="CanvasLayer" parent="." unique_id=1082817814]
 
 [node name="BackgroundScene" type="Node2D" parent="." unique_id=278419459]
 
 [node name="ActualGameWorld" type="Node2D" parent="." unique_id=486069577]
+
+[node name="TestPlayer" parent="ActualGameWorld" unique_id=722355651 instance=ExtResource("2_1yp6k")]
 
 [node name="ForegroundScene" type="Node2D" parent="." unique_id=1855355030]

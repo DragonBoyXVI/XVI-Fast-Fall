@@ -9,13 +9,19 @@ into the pit; all while using an array of specialized weaponry!
 
 Gameplay
 Fast paced action, shoot em up
-- Player that moves in all directions and is limited to the screen.
-- Player can dash to gain speed and ignore damage for a bit
-- Player can shoot down to defeat enemies, but not while dashing
+X Player that moves in all directions and is limited to the screen.
+X Player can dash to gain speed and ignore damage for a bit
+X Player can shoot down to defeat enemies, but not while dashing
+We have a test player that fills these, i may consider sperating its
+functions for reuse
 
 - Enemies spawn periodically
 - Enemies either persist on the screen until killed or despawn naturally
 - Some enemies can shoot at the player, or move in odd formations
+
+- Players and enemies take damage from bullets
+- Entities die after taking too much damage, this is diffrent from
+just despawning it.
 
 - A "round" should end after a duration of time. (or maybe a quota?)
 - There's a shop between rounds that lets the player buy things before

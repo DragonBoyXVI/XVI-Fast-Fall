@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://b05smqo7otih0"]
+
+[ext_resource type="Texture2D" uid="uid://cmhhtda462n1m" path="res://XVI Assets/Images/Script Icons/state_machine_simple.atlastex" id="1_lvwub"]
+[ext_resource type="Script" uid="uid://d3f8xf6gq5aoh" path="res://Test Player/test_bullet.gd" id="2_4ik8w"]
+
+[node name="TestBullet" type="Sprite2D" unique_id=1178240967]
+texture = ExtResource("1_lvwub")
+offset = Vector2(0, 2)
+script = ExtResource("2_4ik8w")
