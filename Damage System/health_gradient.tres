@@ -1,7 +1,0 @@
-[gd_resource type="Gradient" format=3 uid="uid://c2pxmhq38uul0"]
-
-[resource]
-resource_name = "HPGradient"
-offsets = PackedFloat32Array(0, 0.5, 1)
-colors = PackedColorArray(1, 0, 0, 1, 1, 0.96000004, 0, 1, 0, 1, 0, 1)
-metadata/_snap_enabled = true
