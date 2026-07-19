@@ -54,7 +54,7 @@ func _shape_entered_tree( shape: CollisionShape2D ) -> void:
 func _on_area_entered( area: Area2D ) -> void:
 	if ( area is not Hitbox2D ): return;
 	var hitbox := area as Hitbox2D;
-	if ( hitbox.get_team() & _team ):
+	if ( not hitbox.get_team() & _team ):
 		hitbox_entered.emit( hitbox );
 
 

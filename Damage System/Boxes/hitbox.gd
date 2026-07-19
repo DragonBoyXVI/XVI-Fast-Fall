@@ -16,6 +16,9 @@ signal took_damage( damage: DamageInst );
 @export var _team: Consts.Team = Consts.Team.NONE;
 
 
+var _disable_timer: Timer;
+
+
 func _init() -> void:
 	super();
 	
@@ -29,6 +32,13 @@ func _ready() -> void:
 	
 	if ( Engine.is_editor_hint() ):
 		return;
+	
+	_disable_timer = Timer.new();
+	_disable_timer.process_mode = Node.PROCESS_MODE_PAUSABLE;
+	_disable_timer.process_callback = Timer.TIMER_PROCESS_PHYSICS;
+	_disable_timer.one_shot = true;
+	add_child( _disable_timer, false, Node.INTERNAL_MODE_BACK );
+	_disable_timer.timeout.connect( _on_disable_timer_timeout, CONNECT_DEFERRED );
 	
 	match _team:
 		
@@ -52,3 +62,12 @@ func get_team() -> Consts.Team:
 
 func take_damage( damage: DamageInst ) -> void:
 	took_damage.emit( damage );
+
+func timed_disable( time: float ) -> void:
+	
+	set_deferred( &"process_mode", Node.PROCESS_MODE_DISABLED );
+	_disable_timer.start( time );
+
+# deferred
+func _on_disable_timer_timeout() -> void:
+	process_mode = Node.PROCESS_MODE_INHERIT;

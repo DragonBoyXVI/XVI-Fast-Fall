@@ -1,20 +1,39 @@
 @tool
 extends MovementComponent;
 class_name PlayerMovement;
+## Movement for a player controlled object.
+##
+## ditto
 
 
 ## The speed you move in pix/sec
 @export var _move_speed: float = 400.0;
 
 @export_group( "Dash", "_dash" )
+@export_subgroup( "Speed", "_dash_speed" )
 ## How many seconds the dash lasts
-@export var _dash_duration: float = 0.2:
+@export var _dash_speed_duration: float = 0.2:
 	set( new ):
-		_dash_duration = maxf( 0.05, new );
+		_dash_speed_duration = maxf( 0.05, new );
 ## Speed multiplier thats active while dashing
 @export var _dash_speed_mult: float = 1.5:
 	set( new ):
 		_dash_speed_mult = maxf( 0.05, new );
+
+@export_subgroup( "Hitbox", "_dash_hitbox" )
+## The hitbox this disables while dashing
+@export var _dash_hitbox_node: Hitbox2D:
+	set( new ):
+		_dash_hitbox_node = new;
+		notify_property_list_changed();
+## How long the hitbox is disabled for once its disabled.
+@export var _dash_hitbox_immune_duration: float = 0.2:
+	set( new ):
+		_dash_hitbox_immune_duration = maxf( 0.05, new );
+## The delay between dashing and actually becoming immune
+@export var _dash_hitbox_immune_delay: float = 0.05:
+	set( new ):
+		_dash_hitbox_immune_delay = maxf( 0.05, new );
 
 
 var _dash_timer: Timer;
@@ -61,7 +80,7 @@ func dash() -> void:
 	if ( _is_dashing ): return;
 	_is_dashing = true;
 	
-	_dash_timer.start( _dash_duration );
+	_dash_timer.start( _dash_speed_duration );
 
 
 func _on_dash_timer_timeout() -> void:

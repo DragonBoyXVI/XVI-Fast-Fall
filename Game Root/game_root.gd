@@ -4,9 +4,18 @@ extends Node2D
 @export var _room: Node2D;
 
 
+const ASS := preload( "res://World/Enemies/Test Asteroid/test_asteroid.tscn" );
+
+
 func _ready() -> void:
 	
 	Radio.room_change_requested.connect( _on_radio_room_change_requested, CONNECT_DEFERRED );
+	
+	
+	for i: int in ( randi() % 11 ) + 15:
+		await get_tree().create_timer( randf() * 2 ).timeout;
+		
+		add_child( ASS.instantiate() );
 
 
 func _change_room( room_path: String ) -> void:

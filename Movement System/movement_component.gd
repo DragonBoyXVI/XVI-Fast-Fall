@@ -30,3 +30,6 @@ func _get_configuration_warnings() -> PackedStringArray:
 
 
 @abstract func move( delta: float, dir: Vector2 ) -> void;
+
+func dash() -> void:
+	pass;

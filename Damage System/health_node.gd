@@ -117,9 +117,12 @@ func damage( inst: DamageInst ) -> void:
 	
 	if ( _current_hp <= 0 ):
 		died.emit();
+	
+	queue_redraw();
 
 func heal( amount: int ) -> void:
 	_current_hp = mini( _current_hp + amount, _max_hp );
+	queue_redraw();
 
 
 func hp_as_percent() -> float:
