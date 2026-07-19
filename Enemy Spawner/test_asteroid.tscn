@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dbu1ihxuuvmyj" path="res://Enemy Spawner/test_asteroid.gd" id="1_dcwuo"]
 [ext_resource type="Shader" uid="uid://bi2taa4hnunqs" path="res://XVI Assets/Shaders/canvas_animation.gdshader" id="2_n1n3u"]
 [ext_resource type="Texture2D" uid="uid://c80tl3fmvq40l" path="res://icon.svg" id="3_owrlr"]
+[ext_resource type="Script" uid="uid://cqm1hd41qpyp5" path="res://Damage System/hurtbox.gd" id="4_n1n3u"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ua5yu"]
 shader = ExtResource("2_n1n3u")
@@ -19,6 +20,9 @@ shader_parameter/pulse_offset = 0.0
 shader_parameter/pulse_amplitude = Vector2(0, 0)
 shader_parameter/palette_enabled = false
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ua5yu"]
+radius = 32.0
+
 [node name="TestAsteroid" type="Node2D" unique_id=1950483914]
 script = ExtResource("1_dcwuo")
 
@@ -26,3 +30,14 @@ script = ExtResource("1_dcwuo")
 self_modulate = Color(1, 0, 0, 1)
 material = SubResource("ShaderMaterial_ua5yu")
 texture = ExtResource("3_owrlr")
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=1353127855]
+script = ExtResource("4_n1n3u")
+_team = 2
+metadata/_custom_type_script = "uid://cqm1hd41qpyp5"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1065589400]
+shape = SubResource("CircleShape2D_ua5yu")
+debug_color = Color(1, 0, 0, 0.625)
+
+[connection signal="found_hitbox" from="Hurtbox" to="." method="_on_hurtbox_found_hitbox"]

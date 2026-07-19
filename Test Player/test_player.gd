@@ -19,6 +19,8 @@ const BULLET_SCENE: PackedScene = preload( "uid://b05smqo7otih0" );
 
 var _state: PState = PState.FREE;
 
+var _hp := 5;
+
 var _can_dash: bool = true;
 var _can_shoot: bool = true;
 
@@ -91,3 +93,11 @@ func _on_dash_cooldown_timer_timeout() -> void:
 
 func _on_shoot_cooldown_timer_timeout() -> void:
 	_can_shoot = true;
+
+
+func _on_hitbox_took_damage( damage: int ) -> void:
+	_hp -= damage;
+	if ( _hp <= 0 ):
+		queue_free();
+	
+	print( _hp );

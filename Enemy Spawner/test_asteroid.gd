@@ -14,3 +14,7 @@ func _physics_process( delta: float ) -> void:
 	translate( delta * SPEED * Vector2.UP );
 	if ( position.y < 0.0 ):
 		queue_free();
+
+
+func _on_hurtbox_found_hitbox( hitbox: Hitbox ) -> void:
+	hitbox.take_damage( 1 );

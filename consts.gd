@@ -5,6 +5,8 @@ class_name Consts;
 
 
 static func _static_init() -> void:
+	print( "Consts initialized!" );
+	
 	_editor_layer_names();
 
 
@@ -29,15 +31,19 @@ enum ZLayers {
 ## Godot collision layers
 enum Collision {
 	
-	PLAYER_HITBOX = 1<<0,
-	ENEMY_HITBOX = 1<<1,
+	ENTITY_WALLS = 1<<0,
+	BULLET_WALLS = 1<<1,
+	
+	HITBOX = 1<<2,
 	
 }
 static func _editor_layer_names() -> void:
 	
 	const PATH := "layer_names/2d_physics/layer_%s";
-	ProjectSettings.set_setting( PATH % 1, "Player Hitbox" );
-	ProjectSettings.set_setting( PATH % 2, "Enemy Hitbox" );
+	ProjectSettings.set_setting( PATH % 1, "Entity Walls" );
+	ProjectSettings.set_setting( PATH % 2, "Bullet Walls" );
+	
+	ProjectSettings.set_setting( PATH % 3, "Hitboxes" );
 
 enum Team {
 	NONE = 0,

@@ -24,3 +24,10 @@ func emit_settings_changed() -> void:
 	settings_changed.emit();
 
 #endregion Settings
+
+#region Damage System
+
+#signal damage_object( hitbox: Hitbox, damage: Object );
+#signal damage_details( details: Object );
+
+#endregion Damage System
