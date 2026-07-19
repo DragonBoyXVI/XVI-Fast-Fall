@@ -15,40 +15,6 @@ func emit_pause_changed( is_paused: bool ) -> void:
 
 #endregion Game State
 
-#region Screen Fade
-
-## Emitted when the screen fader covers/uncovers the screen.[br]
-## [br]
-## is_paused: Is true if the screen is hidden.
-signal screen_faded( is_covered: bool );
-## Emitted when the screen fader covers/uncovers the screen.[br]
-## [br]
-## is_paused: Is true if the screen is hidden.
-func emit_screen_faded( is_covered: bool ) -> void:
-	screen_faded.emit( is_covered );
-
-#endregion Screen Fade
-
-#region Rooms
-
-signal room_changed();
-func emit_room_changed() -> void:
-	room_changed.emit();
-
-signal room_change_requested( room_path: String );
-func request_room_change( room_path: String ) -> void:
-	room_change_requested.emit( room_path );
-
-#endregion Rooms
-
-#region Menus
-
-signal menu_requested( menu: Consts.Menu );
-func request_menu( menu: Consts.Menu ) -> void:
-	menu_requested.emit( menu );
-
-#endregion Menus
-
 #region Settings
 
 ## Emitted when the game needs to update in acordance to the settings.

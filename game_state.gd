@@ -2,6 +2,19 @@
 @tool
 extends Object;
 class_name GameState;
+## Tracks game wide state info
+##
+## game design
+
+
+static func _static_init() -> void:
+	
+	if ( Engine.is_editor_hint() or CmdArgs.has_arg( CmdArgs.DEV_MODE ) ):
+		dev_mode = true;
+
+
+## If true, allow developer features
+static var dev_mode: bool = false;
 
 
 ## Enum for listing the state of the screen fader.

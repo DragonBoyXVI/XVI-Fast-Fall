@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Fast Fall"
+run/main_scene="uid://dpayme7f75idk"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -32,6 +33,10 @@ window/size/viewport_height=720
 [dotnet]
 
 project/assembly_name="Fast Fall"
+
+[editor]
+
+run/main_run_args="--dev"
 
 [input]
 
