@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://itgnnjb1lts7"]
+
+[node name="GameRoot" type="Node2D" unique_id=156443619]
+
+[node name="UICanvasLayer" type="CanvasLayer" parent="." unique_id=1082817814]
+
+[node name="BackgroundScene" type="Node2D" parent="." unique_id=278419459]
+
+[node name="ActualGameWorld" type="Node2D" parent="." unique_id=486069577]
+
+[node name="ForegroundScene" type="Node2D" parent="." unique_id=1855355030]
