@@ -15,7 +15,7 @@ X Player can shoot down to defeat enemies, but not while dashing
 We have a test player that fills these, i may consider sperating its
 functions for reuse
 
-- Enemies spawn periodically
+X Enemies spawn periodically
 - Enemies either persist on the screen until killed or despawn naturally
 - Some enemies can shoot at the player, or move in odd formations
 

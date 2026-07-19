@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://bjnl3xe46jw16"]
+
+[ext_resource type="Script" uid="uid://dbu1ihxuuvmyj" path="res://Enemy Spawner/test_asteroid.gd" id="1_dcwuo"]
+[ext_resource type="Shader" uid="uid://bi2taa4hnunqs" path="res://XVI Assets/Shaders/canvas_animation.gdshader" id="2_n1n3u"]
+[ext_resource type="Texture2D" uid="uid://c80tl3fmvq40l" path="res://icon.svg" id="3_owrlr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ua5yu"]
+shader = ExtResource("2_n1n3u")
+shader_parameter/speed = 1.0
+shader_parameter/time_offset = 0.0
+shader_parameter/rotate_speed = 1.0
+shader_parameter/rotate_offset = 0.0
+shader_parameter/wave_speed = Vector2(1, 1)
+shader_parameter/wave_offset = 0.0
+shader_parameter/wave_amplitude = Vector2(0, 0)
+shader_parameter/wave_offset_per_vertex = 5.0
+shader_parameter/pulse_speed = Vector2(1, 1)
+shader_parameter/pulse_offset = 0.0
+shader_parameter/pulse_amplitude = Vector2(0, 0)
+shader_parameter/palette_enabled = false
+
+[node name="TestAsteroid" type="Node2D" unique_id=1950483914]
+script = ExtResource("1_dcwuo")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=499330344]
+self_modulate = Color(1, 0, 0, 1)
+material = SubResource("ShaderMaterial_ua5yu")
+texture = ExtResource("3_owrlr")
