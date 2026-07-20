@@ -34,6 +34,7 @@ enum ZLayers {
 	BULLETS = 6,
 }
 
+
 ## Godot collision layers
 enum Collision {
 	NONE = 0,

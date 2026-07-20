@@ -13,6 +13,12 @@ signal pause_changed( is_paused: bool );
 func emit_pause_changed( is_paused: bool ) -> void:
 	pause_changed.emit( is_paused );
 
+## Emitted when the start game button is pressed on the main menu
+signal game_start_pressed();
+## Emitted when the start game button is pressed on the main menu
+func emit_game_start_pressed() -> void:
+	game_start_pressed.emit();
+
 #endregion Game State
 
 #region Settings

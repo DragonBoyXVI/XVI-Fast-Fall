@@ -31,3 +31,16 @@ enum ScreenFadeState {
 }
 ## Current state of the screen fader.
 static var screen_fade_state: ScreenFadeState = ScreenFadeState.IDLE;
+
+## Enum for various game modes
+enum GameMode {
+	## Survive as many rounds as possible.
+	## Rounds end after an amount of time.
+	TIME_SURVIVAL,
+	## Survive as many rounds as possible.
+	## Rounds end whenn you hit a score quota.
+	QUOTA_SURVIVAL,
+	## Anything can spawn at any time. Enemies, bosses, upgrades.,.
+	## Survive for as long as possible!
+	ALL_OUT,
+}
