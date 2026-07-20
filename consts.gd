@@ -17,6 +17,12 @@ const SCREEN_SIZE: Vector2i = Vector2i(
 	720
 );
 
+## World area considered to be the playable area
+const PLAY_AREA: Rect2 = Rect2(
+	Vector2.ZERO,
+	SCREEN_SIZE
+);
+
 ## Visual layers for objects to draw on.
 enum ZLayers {
 	BACKGROUNDS = 0,

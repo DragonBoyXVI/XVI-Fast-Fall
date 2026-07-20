@@ -19,7 +19,7 @@ X Enemies spawn periodically
 - Enemies either persist on the screen until killed or despawn naturally
 - Some enemies can shoot at the player, or move in odd formations
 
-- Players and enemies take damage from bullets
+X Players and enemies take damage from bullets
 - Entities die after taking too much damage, this is diffrent from
 just despawning it.
 
@@ -54,40 +54,3 @@ that builds after games.
 
 - Player customization?
 - Unique loadouts? or diffrent player units chosen at the start of a game?
-
-
-
-
-
-
-
-
-
-
-
-
-
--- Bullet engine
-- What do bullets do?
-X have a position
-X have collision
-X disapear when hitting something or going off map
-X some may need to have special properties, visuals or behaviours
-X how many bullets could there be at once? Possibly over 100 at most.,.
-
--- Player abilities
-X Shoot bullets (duh)
-dash for iframes?
-powerups and upgrades.,.,
-
--- Enemy Spawning system
-
--- Game over screen
-
--- Score screen
-
--- Area transition
-
--- Player upgrades
-
--- Shop?

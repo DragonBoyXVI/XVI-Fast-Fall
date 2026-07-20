@@ -8,6 +8,7 @@ class_name GameState;
 
 
 static func _static_init() -> void:
+	print( "GameState init" );
 	
 	if ( Engine.is_editor_hint() or CmdArgs.has_arg( CmdArgs.DEV_MODE ) ):
 		dev_mode = true;
