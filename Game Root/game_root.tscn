@@ -1,11 +1,8 @@
 [gd_scene format=3 uid="uid://itgnnjb1lts7"]
 
 [ext_resource type="Script" uid="uid://bgvmfmwbh4t08" path="res://Game Root/game_root.gd" id="1_73fyj"]
-[ext_resource type="PackedScene" uid="uid://digp1s6d8di8i" path="res://Menus/Main Menu/main_menu.tscn" id="2_1yp6k"]
 
 [node name="GameRoot" type="Node2D" unique_id=156443619]
 script = ExtResource("1_73fyj")
 
 [node name="UICanvasLayer" type="CanvasLayer" parent="." unique_id=1082817814]
-
-[node name="MainMenu" parent="UICanvasLayer" unique_id=699373103 instance=ExtResource("2_1yp6k")]
