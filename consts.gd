@@ -30,6 +30,7 @@ enum ZLayers {
 
 ## Godot collision layers
 enum Collision {
+	NONE = 0,
 	
 	ENTITY_WALLS = 1<<0,
 	BULLET_WALLS = 1<<1,

@@ -21,7 +21,9 @@ const BULLET_SCENE: PackedScene = preload( "uid://b05smqo7otih0" );
 @export var _damage_immune_time: float  = 1.0:
 	set( new ):
 		_damage_immune_time = maxf( 0.05, new );
-@export var _time_between_shots: float = 0.125;
+@export var _time_between_shots: float = 0.125:
+	set( new ):
+		_time_between_shots = maxf( 0.05, new );
 
 @export_group( "Components" )
 @export var _health_node: HealthNode

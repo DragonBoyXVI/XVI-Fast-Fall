@@ -1,6 +1,6 @@
 
 extends Node2D;
-class_name BulletManager;
+#class_name BulletManager;
 
 
 class Bullet:
@@ -40,6 +40,9 @@ func _process( _delta: float ) -> void:
 		_extra_draw = not _active_bullets.is_empty();
 		queue_redraw();
 
+func _physics_process( delta: float ) -> void:
+	pass
+
 func _draw() -> void:
 	if ( _active_bullets.is_empty() ): return;
 	
@@ -58,5 +61,18 @@ func _draw() -> void:
 		draw_set_transform_matrix( Transform2D.IDENTITY );
 
 
-func _remove_bullet( bullet: Bullet ) -> void:
-	pass
+func _init_bullet( bullet: Bullet ) -> void:
+	
+	var body_rid := PhysicsServer2D.body_create()
+	bullet.body_rid = body_rid;
+	PhysicsServer2D.body_set_collision_layer( body_rid, Consts.Collision.HITBOX );
+	PhysicsServer2D.body_set_collision_mask( body_rid, Consts.Collision.NONE );
+	PhysicsServer2D.body_add_shape( body_rid, _shape_rid );
+	PhysicsServer2D.body_set_space( body_rid, get_world_2d().direct_space_state );
+	
+	var trans := Transform2D( bullet.direction, bullet.position );
+	PhysicsServer2D.body_set_state( body_rid, PhysicsServer2D.BODY_STATE_TRANSFORM, trans );
+
+func _clean_bullet( bullet: Bullet ) -> void:
+	
+	PhysicsServer2D.free_rid( bullet.body_rid );

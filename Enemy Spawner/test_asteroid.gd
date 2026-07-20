@@ -20,3 +20,7 @@ func _physics_process( delta: float ) -> void:
 
 func _on_hurtbox_found_hitbox( hitbox: Hitbox ) -> void:
 	hitbox.take_damage( 1 );
+
+
+func _on_hitbox_took_damage( _damage: int ) -> void:
+	queue_free();
