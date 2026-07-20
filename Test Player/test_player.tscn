@@ -28,6 +28,7 @@ debug_color = Color(0, 0, 1, 0.625)
 script = ExtResource("4_6vnx5")
 _bar_enabled = true
 _bar_offset = Vector2(0, 48)
+_bar_size = Vector2(64, 16)
 metadata/_custom_type_script = "uid://dyg0rf3kql54d"
 
 [connection signal="took_damage" from="Hitbox" to="." method="_on_hitbox_took_damage"]
