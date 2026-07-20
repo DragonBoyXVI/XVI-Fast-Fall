@@ -103,5 +103,5 @@ func heal( amount: int ) -> void:
 ## Returns a float between 0.0 and 1.0.
 ## This is the percentage of health remaining.
 func get_health_percent() -> float:
-	var percent: float = _max_hp / float( _current_hp );
+	var percent: float = _current_hp / float( _max_hp );
 	return clampf( percent, 0.0, 1.0 );

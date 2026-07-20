@@ -16,10 +16,11 @@ const BULLET_SCENE: PackedScene = preload( "uid://b05smqo7otih0" );
 @export var _dash_cooldown: float = 2.0;
 @export var _time_between_shots: float = 0.125;
 
+@export var _health_node: HealthNode
+
 
 var _state: PState = PState.FREE;
 
-var _hp := 5;
 
 var _can_dash: bool = true;
 var _can_shoot: bool = true;
@@ -30,6 +31,8 @@ var _shoot_cooldown_timer: Timer;
 
 
 func _ready() -> void:
+	
+	_health_node.died.connect( _on_health_node_died );
 	
 	_dash_duration_timer = CooldownTimer.new();
 	add_child( _dash_duration_timer, false, Node.INTERNAL_MODE_BACK );
@@ -98,8 +101,7 @@ func _on_shoot_cooldown_timer_timeout() -> void:
 func _on_hitbox_took_damage( damage: int ) -> void:
 	if ( _state == PState.DASH ): return;
 	
-	_hp -= damage;
-	if ( _hp <= 0 ):
-		queue_free();
-	
-	print( _hp );
+	_health_node.damage( damage );
+
+func _on_health_node_died() -> void:
+	queue_free();

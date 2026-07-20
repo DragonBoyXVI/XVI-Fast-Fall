@@ -8,8 +8,9 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_ua5yu"]
 radius = 32.0
 
-[node name="TestPlayer" type="Node2D" unique_id=722355651]
+[node name="TestPlayer" type="Node2D" unique_id=722355651 node_paths=PackedStringArray("_health_node")]
 script = ExtResource("1_gg3ki")
+_health_node = NodePath("HealthNode")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1475968561]
 texture = ExtResource("2_8cith")

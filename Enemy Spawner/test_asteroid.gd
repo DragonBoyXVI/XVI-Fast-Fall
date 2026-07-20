@@ -8,6 +8,8 @@ func _ready() -> void:
 	
 	position.x = Consts.SCREEN_SIZE.x * randf();
 	position.y = Consts.SCREEN_SIZE.y;
+	
+	$Sprite2D.rotate( TAU * randf() );
 
 func _physics_process( delta: float ) -> void:
 	
