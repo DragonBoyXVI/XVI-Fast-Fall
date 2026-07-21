@@ -34,6 +34,9 @@ static var screen_fade_state: ScreenFadeState = ScreenFadeState.IDLE;
 
 ## Enum for various game modes
 enum GameMode {
+	## Invalid game mode
+	NONE,
+	
 	## Survive as many rounds as possible.
 	## Rounds end after an amount of time.
 	TIME_SURVIVAL,
@@ -44,3 +47,8 @@ enum GameMode {
 	## Survive for as long as possible!
 	ALL_OUT,
 }
+static var current_game_mode: GameMode = GameMode.NONE;
+
+
+## The current score for this game.
+static var current_score: int = 0;
