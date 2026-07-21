@@ -13,6 +13,8 @@ func _change_room( room_path: String ) -> void:
 	assert( ResourceLoader.exists( room_path, "PackedScene" ) );
 	
 	#TODO fade screen here
+	Radio.request_screen_hide();
+	await Radio.screen_hidden;
 	
 	if ( _current_game_room ):
 		_current_game_room.queue_free();
@@ -24,3 +26,5 @@ func _change_room( room_path: String ) -> void:
 	add_child( _current_game_room );
 	
 	#TODO unfade screen here
+	Radio.request_screen_show();
+	await Radio.screen_shown;
