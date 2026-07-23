@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://jhsgp4kuuicr"]
+
+[ext_resource type="Script" uid="uid://mogf0hdd0vkj" path="res://Player Entity/player_bullet.gd" id="1_bdqd4"]
+[ext_resource type="Texture2D" uid="uid://cmhhtda462n1m" path="res://XVI Assets/Images/Script Icons/state_machine_simple.atlastex" id="1_lea0e"]
+[ext_resource type="Script" uid="uid://cqm1hd41qpyp5" path="res://Damage System/hurtbox.gd" id="3_ek2m1"]
+[ext_resource type="Shape2D" uid="uid://3dk4qyjrvue4" path="res://Player Entity/player_bullet_shape.tres" id="4_y26bg"]
+
+[node name="PlayerBullet" type="Node2D" unique_id=1430781978]
+script = ExtResource("1_bdqd4")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=196701456]
+texture = ExtResource("1_lea0e")
+offset = Vector2(0, 3)
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=1156649424]
+script = ExtResource("3_ek2m1")
+_team = 1
+metadata/_custom_type_script = "uid://cqm1hd41qpyp5"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1575962497]
+shape = ExtResource("4_y26bg")
+debug_color = Color(1, 0, 0, 0.625)

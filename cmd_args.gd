@@ -23,3 +23,6 @@ static func has_arg( arg: String ) -> bool:
 
 ## Command line to activate developer mode.
 const DEV_MODE := "--dev";
+
+## Command line to unlock all locked content
+const UNLOCK_ALL := "--unlock-all";

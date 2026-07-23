@@ -108,8 +108,9 @@ Pause={
 
 [layer_names]
 
-2d_physics/layer_1="Player Hitbox"
-2d_physics/layer_2="Enemy Hitbox"
+2d_physics/layer_1="Entity Walls"
+2d_physics/layer_2="Bullet Walls"
+2d_physics/layer_3="Hitboxes"
 
 [physics]
 

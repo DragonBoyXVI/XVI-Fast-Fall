@@ -1,19 +1,6 @@
 
 extends Node2D;
-#class_name BulletManager;
-
-
-class Bullet:
-	extends RefCounted;
-	
-	var owner: Node2D;
-	var body_rid: RID;
-	
-	var position: Vector2;
-	var direction: float;
-	var speed: float;
-	
-	var team: Consts.Team;
+class_name BulletManager;
 
 
 const BULLET_RADIUS := 16.0;
@@ -63,16 +50,24 @@ func _draw() -> void:
 
 func _init_bullet( bullet: Bullet ) -> void:
 	
-	var body_rid := PhysicsServer2D.body_create()
+	var body_rid := PhysicsServer2D.area_create()
 	bullet.body_rid = body_rid;
-	PhysicsServer2D.body_set_collision_layer( body_rid, Consts.Collision.HITBOX );
-	PhysicsServer2D.body_set_collision_mask( body_rid, Consts.Collision.NONE );
-	PhysicsServer2D.body_add_shape( body_rid, _shape_rid );
-	PhysicsServer2D.body_set_space( body_rid, get_world_2d().direct_space_state );
+	PhysicsServer2D.area_set_collision_layer( body_rid, Consts.Collision.HITBOX );
+	PhysicsServer2D.area_set_collision_mask( body_rid, Consts.Collision.NONE );
+	PhysicsServer2D.area_add_shape( body_rid, _shape_rid );
+	PhysicsServer2D.area_set_space( body_rid, get_world_2d().direct_space_state );
+	
+	PhysicsServer2D.area_set_monitorable( body_rid, false );
+	PhysicsServer2D.area_set_area_monitor_callback( body_rid, _bullet_area_entered );
 	
 	var trans := Transform2D( bullet.direction, bullet.position );
-	PhysicsServer2D.body_set_state( body_rid, PhysicsServer2D.BODY_STATE_TRANSFORM, trans );
+	PhysicsServer2D.area_set_transform( body_rid, trans );
 
 func _clean_bullet( bullet: Bullet ) -> void:
 	
 	PhysicsServer2D.free_rid( bullet.body_rid );
+
+
+func _bullet_area_entered( status: PhysicsServer2D.AreaBodyStatus, area_rid: RID, instance_id: int, area_shape_index: int, self_shape_index: int ) -> void:
+	if ( status == PhysicsServer2D.AREA_BODY_REMOVED ):
+		return;

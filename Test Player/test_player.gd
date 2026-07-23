@@ -26,7 +26,6 @@ const BULLET_SCENE: PackedScene = preload( "uid://b05smqo7otih0" );
 		_time_between_shots = maxf( 0.05, new );
 
 @export_group( "Components" )
-@export var _health_node: HealthNode
 
 
 var _state: PState = PState.FREE;
@@ -44,8 +43,6 @@ var _is_damage_immune: bool = false;
 
 
 func _ready() -> void:
-	
-	_health_node.died.connect( _on_health_node_died );
 	
 	_dash_duration_timer = CooldownTimer.new();
 	add_child( _dash_duration_timer, false, Node.INTERNAL_MODE_BACK );
@@ -82,6 +79,15 @@ func _physics_process( delta: float ) -> void:
 			_shoot();
 	elif ( _state == PState.DASH ):
 		_routine_movement( delta * _dash_mult, InputNames.get_move_dir() );
+
+func _enter_tree() -> void:
+	
+	GameState.player_node = self;
+
+func _exit_tree() -> void:
+	
+	if ( GameState.player_node == self ):
+		GameState.player_node = null;
 
 
 func _routine_movement( delta: float, direction: Vector2 ) -> void:
@@ -126,15 +132,18 @@ func _on_shoot_cooldown_timer_timeout() -> void:
 	_can_shoot = true;
 
 
-func _on_hitbox_took_damage( damage: int ) -> void:
+func _on_hitbox_took_damage( _damage: int ) -> void:
 	if ( not _is_damagable() ): return;
 	
-	_health_node.damage( damage );
-	_is_damage_immune = true;
-	_damage_immune_timer.start( _damage_immune_time );
-
-func _on_health_node_died() -> void:
-	queue_free();
+	GameState.player_hp_current -= 1;
+	Radio.emit_player_hp_changed();
+	
+	if ( GameState.player_hp_current > 0 ):
+		
+		_is_damage_immune = true;
+		_damage_immune_timer.start( _damage_immune_time );
+	else:
+		queue_free();
 
 
 func _on_damage_immune_timer_timeout() -> void:

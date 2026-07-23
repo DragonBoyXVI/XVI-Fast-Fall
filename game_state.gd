@@ -12,10 +12,14 @@ static func _static_init() -> void:
 	
 	if ( Engine.is_editor_hint() or CmdArgs.has_arg( CmdArgs.DEV_MODE ) ):
 		dev_mode = true;
+	
+	was_unlock_all_used = CmdArgs.has_arg( CmdArgs.UNLOCK_ALL );
 
 
 ## If true, allow developer features
 static var dev_mode: bool = false;
+## If true, the unlock all command line was used
+static var was_unlock_all_used: bool = false;
 
 
 ## Enum for listing the state of the screen fader.
@@ -49,6 +53,11 @@ enum GameMode {
 }
 static var current_game_mode: GameMode = GameMode.NONE;
 
+
+## Node that represents the player.
+static var player_node: Node2D;
+## Player current hp
+static var player_hp_current: int = 5;
 
 ## The current score for this game.
 static var current_score: int = 0;

@@ -3,14 +3,12 @@
 [ext_resource type="Script" uid="uid://bwy56vr8j8r8j" path="res://Test Player/test_player.gd" id="1_gg3ki"]
 [ext_resource type="Texture2D" uid="uid://c80tl3fmvq40l" path="res://icon.svg" id="2_8cith"]
 [ext_resource type="Script" uid="uid://x77u0xhet82r" path="res://Damage System/hitbox.gd" id="3_a2m5u"]
-[ext_resource type="Script" uid="uid://dyg0rf3kql54d" path="res://Damage System/health_node.gd" id="4_6vnx5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ua5yu"]
 radius = 32.0
 
-[node name="TestPlayer" type="Node2D" unique_id=722355651 node_paths=PackedStringArray("_health_node")]
+[node name="TestPlayer" type="Node2D" unique_id=722355651]
 script = ExtResource("1_gg3ki")
-_health_node = NodePath("HealthNode")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1475968561]
 texture = ExtResource("2_8cith")
@@ -23,12 +21,5 @@ metadata/_custom_type_script = "uid://x77u0xhet82r"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1409220773]
 shape = SubResource("CircleShape2D_ua5yu")
 debug_color = Color(0, 0, 1, 0.625)
-
-[node name="HealthNode" type="Node2D" parent="." unique_id=961152345]
-script = ExtResource("4_6vnx5")
-_bar_enabled = true
-_bar_offset = Vector2(0, 48)
-_bar_size = Vector2(64, 16)
-metadata/_custom_type_script = "uid://dyg0rf3kql54d"
 
 [connection signal="took_damage" from="Hitbox" to="." method="_on_hitbox_took_damage"]

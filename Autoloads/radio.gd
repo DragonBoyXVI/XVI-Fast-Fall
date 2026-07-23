@@ -14,12 +14,18 @@ func emit_pause_changed( is_paused: bool ) -> void:
 	pause_changed.emit( is_paused );
 
 
-
 ## Emitted when the start game button is pressed on the main menu
 signal game_start_pressed();
 ## Emitted when the start game button is pressed on the main menu
 func emit_game_start_pressed() -> void:
 	game_start_pressed.emit();
+
+
+## Emitted when player hp changes in the [GameState]
+signal player_hp_changed();
+func emit_player_hp_changed() -> void:
+	player_hp_changed.emit();
+
 
 #endregion Game State
 
@@ -56,9 +62,11 @@ func emit_settings_changed() -> void:
 
 #endregion Settings
 
+#region Bullet System
+
+#endregion Bullet System
+
 #region Damage System
 
-#signal damage_object( hitbox: Hitbox, damage: Object );
-#signal damage_details( details: Object );
 
 #endregion Damage System
