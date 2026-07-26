@@ -3,6 +3,12 @@ extends Node
 
 #region Game State
 
+## Emitted when we want to show a menu
+signal menu_requested( menu: Consts.Menu );
+## Show a menu to the screen.
+func request_menu( menu: Consts.Menu ) -> void:
+	menu_requested.emit( menu );
+
 ## Emitted when the game is paused/unpaused.[br]
 ## [br]
 ## is_paused: Is true if the game is paused.

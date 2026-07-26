@@ -58,6 +58,7 @@ static var current_game_mode: GameMode = GameMode.NONE;
 static var player_node: Node2D;
 ## Player current hp
 static var player_hp_current: int = 5;
+static var player_damage: int = 1;
 
 ## The current score for this game.
 static var current_score: int = 0;

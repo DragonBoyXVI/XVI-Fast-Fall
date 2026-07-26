@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://bbvv23ucu3s2y"]
+
+[ext_resource type="Texture2D" uid="uid://ip32hjke7db6" path="res://XVI Assets/Images/Script Icons/icons.png" id="1_qbv5g"]
+[ext_resource type="Script" uid="uid://psib2d38qlr0" path="res://Rooms/Main Menu/main_menu.gd" id="1_xa27r"]
+
+[node name="MainMenu" type="Node2D" unique_id=1283080589]
+script = ExtResource("1_xa27r")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=855372984]
+
+[node name="MenuUI" type="MarginContainer" parent="CanvasLayer" unique_id=577081679]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MenuUI" unique_id=1212607843]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MenuUI/VBoxContainer" unique_id=1296968173]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("1_qbv5g")
+stretch_mode = 5
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/MenuUI/VBoxContainer" unique_id=491346553]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MenuUI/VBoxContainer/PanelContainer" unique_id=24943856]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MenuUI/VBoxContainer/PanelContainer/MarginContainer" unique_id=849865707]
+layout_mode = 2
+
+[node name="PlayButton" type="Button" parent="CanvasLayer/MenuUI/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=580377852]
+unique_name_in_owner = true
+layout_mode = 2
+text = "KEY_PLAY"
+
+[node name="SettingsButton" type="Button" parent="CanvasLayer/MenuUI/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=253695708]
+unique_name_in_owner = true
+layout_mode = 2
+text = "KEY_SETTINGS"
+
+[node name="QuitButton" type="Button" parent="CanvasLayer/MenuUI/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=621928937]
+unique_name_in_owner = true
+layout_mode = 2
+text = "KEY_QUIT_DESKTOP"
