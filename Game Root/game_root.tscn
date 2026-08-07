@@ -1,9 +1,0 @@
-[gd_scene format=3 uid="uid://c76s60pf1imvp"]
-
-[ext_resource type="PackedScene" uid="uid://dsiq2e10eli1o" path="res://Game Room/game_room.tscn" id="1_73fyj"]
-
-[node name="GameRoot" type="Node2D" unique_id=438966970]
-
-[node name="GUILayer" type="CanvasLayer" parent="." unique_id=366170813]
-
-[node name="GameRoom" parent="." unique_id=297868296 instance=ExtResource("1_73fyj")]
