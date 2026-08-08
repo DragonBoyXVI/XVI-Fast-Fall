@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://rfd78cfbh3bq"]
 
 [ext_resource type="Script" uid="uid://3m6g8flp4lxj" path="res://Game Window/game_window.gd" id="1_a1ra0"]
-[ext_resource type="Shader" uid="uid://bi2taa4hnunqs" path="res://addons/xvi_utilities/Assets/Shaders/canvas_animation.gdshader" id="1_d3gm6"]
-[ext_resource type="Texture2D" uid="uid://c80tl3fmvq40l" path="res://icon.svg" id="2_dkc24"]
+[ext_resource type="Shader" uid="uid://bi2taa4hnunqs" path="res://XVI Assets/Shaders/canvas_animation.gdshader" id="1_d3gm6"]
+[ext_resource type="Texture2D" uid="uid://dvpssmdfovdp3" path="res://icon.svg" id="2_dkc24"]
+[ext_resource type="Script" uid="uid://d3kesyqgaanbp" path="res://XVI Assets/Scripts/fps_label.gd" id="4_a1ra0"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_a1ra0"]
 shader = ExtResource("1_d3gm6")
@@ -80,8 +81,16 @@ process_mode = 1
 disable_3d = true
 handle_input_locally = false
 snap_2d_transforms_to_pixel = true
+anisotropic_filtering_level = 0
 canvas_item_default_texture_filter = 0
 size = Vector2i(480, 720)
 size_2d_override = Vector2i(480, 720)
 size_2d_override_stretch = true
 render_target_update_mode = 4
+
+[node name="FpsLabel" type="Label" parent="." unique_id=1206141461]
+layout_mode = 0
+offset_right = 58.0
+offset_bottom = 23.0
+script = ExtResource("4_a1ra0")
+metadata/_custom_type_script = "uid://d3kesyqgaanbp"

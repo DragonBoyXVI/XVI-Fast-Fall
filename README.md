@@ -1,42 +1,47 @@
 # Fast Fall
 
+Fast Fall is a fast paced shoot em up/falling simulator!
+Decent into an endless pit of danger, avoiding obstacles and
+shooting enemies.
+Pass the round and you can buy upgrades to better mow down the
+challenges ahead, how deep into the earth can you go?
+
+# Todo!
+
+Player Abilites
+- Dash that gives iframes and speed boost
+- Shoot primary weapon (cant shoot while dashing)
+- Extra button for a special action
+- Stats modifiable in the shop (speed, atk, hp, etc)
+- LT: Player models/loadouts that affect gameplay
+
+Damage System
+- Hitbox component that emits a signal when hit
+- Hurtbox that deals damage to hitboxes
+- Bullets should act similar to hurtboxes
+- Damage should be logged for player stats. (ex. player has done x damage to y enemy type in all their play history)
+
+Bullet System
+- Bullet manager that ticks bullet objects
+- Tick offsets so not every bullet is ticked per frame
+- Base bullet class to allow for diffrent bullet types,
+though this should mostly handle simple samey bullets.
+- Advanced bullets or attacks can ignore this system and be scenes.
+
+Health System
+- Health component that can draw a health bar if enabled
+- Should be able to grab hp % and tell it to scale hp
+- Should be able to query death state
+- Player hp in a global state?
 
 # To do!
 
-Gameplay Fast paced action, shoot em up X Player that moves in all directions and is limited to the screen. X Player can dash to gain speed and ignore damage for a bit X Player can shoot down to defeat enemies, but not while dashing We have a test player that fills these, i may consider sperating its functions for reuse
+Gameplay Fast paced action, shoot em up
 
-- Enemies spawn periodically
-
-    Enemies either persist on the screen until killed or despawn naturally
-    Some enemies can shoot at the player, or move in odd formations
-
-- Players and enemies take damage from bullets
-
-    Entities die after taking too much damage, this is diffrent from just despawning it.
-
-- Damage system needs to inform all relivant nodes: - what took damage - who did the damage - how much damage was dealt - was that damage fatal
-
-- hurtbox detects a hitbox hurtbox emits signal that parent catches and handles
-
-- simplify damage system for now, damage tracking can be hanlded later.
-
-    A "round" should end after a duration of time. (or maybe a quota?)
-
-    There's a shop between rounds that lets the player buy things before moving on to the next round
-
-    Enemies get tankier and tankier endlessly, until a cap is hit or the player dies, ending the game.
-
-    Some enemies should only spawn in later rounds or biomes
-
-    Some shop items should only be sold at later rounds
-
-    Some shop items should be locked behind meta progression, such as an xp bar that builds after games.
-
-    Results screen showing saved scores for the current game type.
-
-    Player customization?
-
-    Unique loadouts? or diffrent player units chosen at the start of a game?
+X Player that moves in all directions and is limited to the screen.
+X Player can dash to gain speed and ignore damage for a bit
+X Player can shoot down to defeat enemies, but not while dashing We have a test player that fills these,
+i may consider sperating its functions for reuse
 
 
 
