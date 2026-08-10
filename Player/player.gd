@@ -4,6 +4,9 @@ extends Node2D
 const _move_speed: float = 400.0;
 
 
+func _ready() -> void:
+	pass
+
 func _physics_process( delta: float ) -> void:
 	_movement( delta, InputNames.get_move_dir() );
 
