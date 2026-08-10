@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://dxti6haf1he8"]
+
+[ext_resource type="Texture2D" uid="uid://cmhhtda462n1m" path="res://XVI Assets/Images/Script Icons/state_machine_simple.atlastex" id="1_rw412"]
+[ext_resource type="Script" uid="uid://fnhip37oqaiv" path="res://TestAsteroid/test_asteroid.gd" id="1_umlvy"]
+[ext_resource type="Script" uid="uid://g26ak1f54u2t" path="res://DamageSystem/hurtbox.gd" id="2_fgjqv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ua5yu"]
+radius = 18.0
+
+[node name="TestAsteroid" type="Node2D" unique_id=373011298]
+script = ExtResource("1_umlvy")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1229088591]
+scale = Vector2(3, 3)
+texture = ExtResource("1_rw412")
+offset = Vector2(0, 3)
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=296786489]
+script = ExtResource("2_fgjqv")
+_team = 2
+metadata/_custom_type_script = "uid://g26ak1f54u2t"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=290836476]
+shape = SubResource("CircleShape2D_ua5yu")
+debug_color = Color(1, 0.27058825, 0, 0.625)
+
+[connection signal="found_hitbox" from="Hurtbox" to="." method="_on_hurtbox_found_hitbox"]

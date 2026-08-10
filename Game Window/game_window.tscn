@@ -4,6 +4,7 @@
 [ext_resource type="Shader" uid="uid://bi2taa4hnunqs" path="res://XVI Assets/Shaders/canvas_animation.gdshader" id="1_d3gm6"]
 [ext_resource type="Texture2D" uid="uid://dvpssmdfovdp3" path="res://icon.svg" id="2_dkc24"]
 [ext_resource type="Script" uid="uid://d3kesyqgaanbp" path="res://XVI Assets/Scripts/fps_label.gd" id="4_a1ra0"]
+[ext_resource type="PackedScene" uid="uid://dbabhyeg4yul8" path="res://test_world.tscn" id="4_tpv8i"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_a1ra0"]
 shader = ExtResource("1_d3gm6")
@@ -86,6 +87,8 @@ size = Vector2i(480, 720)
 size_2d_override = Vector2i(480, 720)
 size_2d_override_stretch = true
 render_target_update_mode = 4
+
+[node name="TestWorld" parent="AspectRatioContainer/SubViewportContainer/SubViewport" unique_id=896232054 instance=ExtResource("4_tpv8i")]
 
 [node name="FpsLabel" type="Label" parent="." unique_id=1206141461]
 layout_mode = 0

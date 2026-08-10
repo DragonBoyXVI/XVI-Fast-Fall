@@ -18,3 +18,6 @@ metadata/_custom_type_script = "uid://dxbfjway7omcp"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1625028781]
 shape = ExtResource("4_k53q1")
+debug_color = Color(0.5294118, 0.80784315, 0.92156863, 0.625)
+
+[connection signal="was_hit" from="Hitbox" to="." method="_on_hitbox_was_hit"]

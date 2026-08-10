@@ -16,3 +16,7 @@ func _movement( delta: float, dir: Vector2 ) -> void:
 	var movement_offset: Vector2 = dir * delta * _move_speed;
 	translate( movement_offset );
 	position = position.clamp( Vector2.ZERO, Consts.SCREEN_SIZE );
+
+
+func _on_hitbox_was_hit() -> void:
+	print( "ow!" );
