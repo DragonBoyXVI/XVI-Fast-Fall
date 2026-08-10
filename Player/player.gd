@@ -18,5 +18,5 @@ func _movement( delta: float, dir: Vector2 ) -> void:
 	position = position.clamp( Vector2.ZERO, Consts.SCREEN_SIZE );
 
 
-func _on_hitbox_was_hit() -> void:
-	print( "ow!" );
+func _on_hitbox_was_hit( dmg: DamageInst ) -> void:
+	print( "ow! %s" % dmg.amount );

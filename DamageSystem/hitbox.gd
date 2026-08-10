@@ -10,10 +10,11 @@ class_name Hitbox;
 const SHAPE_COLOR = Color( Color.SKY_BLUE, 0.625 );
 
 
-## Emitted when this takes damage.
-signal was_hit();
-func take_hit() -> void:
-	was_hit.emit();
+## Emitted when this takes damage.[br]
+## dmg: [DamageInst] - The damage this took.
+signal was_hit( dmg: DamageInst );
+func take_hit( dmg: DamageInst ) -> void:
+	was_hit.emit( dmg );
 
 
 ## What team this [Hitbox] belongs to.
