@@ -5,6 +5,8 @@ class_name Consts;
 
 
 static func _static_init() -> void:
+	print( "Consts Init" );
+	
 	_editor_layer_names();
 
 
@@ -31,6 +33,8 @@ enum Collision {
 	
 	PLAYER_HITBOX = 1<<0,
 	ENEMY_HITBOX = 1<<1,
+	
+	ALL_HITBOXES = PLAYER_HITBOX | ENEMY_HITBOX,
 	
 }
 static func _editor_layer_names() -> void:

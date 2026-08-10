@@ -10,7 +10,8 @@ Pass the round and you can buy upgrades to better mow down the
 Mark off the relivant to do notes when you do something
 
 Establish the main gameplay loop
-- A player that moves and shoots
+X A player that moves
+- Player can shoot bulltes
 - Player has health
 - A game over screen thats shown when player dies
 - A next layer transition that happens after some citeria
@@ -18,7 +19,7 @@ Establish the main gameplay loop
 # Todo!
 
 Player Abilites
-- Moves in all four directions
+X Moves in all four directions
 - Dash that gives iframes and speed boost
 - Shoot primary weapon (cant shoot while dashing)
 - Extra button for a special action
@@ -26,8 +27,8 @@ Player Abilites
 - LT: Player models/loadouts that affect gameplay
 
 Damage System
-- Hitbox component that emits a signal when hit
-- Hurtbox that deals damage to hitboxes
+X Hitbox component that emits a signal when hit
+X Hurtbox component that emits a signal when it finds a hitbox
 - Bullets should act similar to hurtboxes
 - Damage should be logged for player stats. (ex. player has done x damage to y enemy type in all their play history)
 
