@@ -4,11 +4,21 @@ Fast Fall is a fast paced shoot em up/falling simulator!
 Decent into an endless pit of danger, avoiding obstacles and
 shooting enemies.
 Pass the round and you can buy upgrades to better mow down the
-challenges ahead, how deep into the earth can you go?
+ challenges ahead, how deep into the earth can you go?
+
+#Tasks
+Mark off the relivant to do notes when you do something
+
+Establish the main gameplay loop
+- A player that moves and shoots
+- Player has health
+- A game over screen thats shown when player dies
+- A next layer transition that happens after some citeria
 
 # Todo!
 
 Player Abilites
+- Moves in all four directions
 - Dash that gives iframes and speed boost
 - Shoot primary weapon (cant shoot while dashing)
 - Extra button for a special action
