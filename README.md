@@ -12,7 +12,7 @@ Mark off the relivant to do notes when you do something
 Establish the main gameplay loop
 X A player that moves
 - Player can shoot bulltes
-- Player has health
+X Player has health
 - A game over screen thats shown when player dies
 - A next layer transition that happens after some citeria
 

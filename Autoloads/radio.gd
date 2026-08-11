@@ -16,3 +16,12 @@ func emit_settings_changed() -> void:
 	settings_changed.emit();
 
 #endregion Settings
+
+#region BulletSystem
+
+## Emitted when a bullet is fired.
+signal bullet_fired( bullet: Bullet );
+func fire_bullet( bullet: Bullet ) -> void:
+	bullet_fired.emit( bullet );
+
+#endregion BulletSystem

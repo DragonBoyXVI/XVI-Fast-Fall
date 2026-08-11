@@ -11,6 +11,11 @@ func _ready() -> void:
 
 func _physics_process( delta: float ) -> void:
 	_movement( delta, InputNames.get_move_dir() );
+	
+	if ( Input.is_action_pressed( InputNames.BACK ) ):
+		var bullet := BulletTest.new();
+		bullet.transform.origin = get_global_mouse_position();
+		Radio.fire_bullet( bullet );
 
 
 func _movement( delta: float, dir: Vector2 ) -> void:

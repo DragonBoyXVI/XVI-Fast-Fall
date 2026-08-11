@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://pqntxoy6xkil" path="res://Player/player.tscn" id="1_dxppu"]
 [ext_resource type="PackedScene" uid="uid://dxti6haf1he8" path="res://TestAsteroid/test_asteroid.tscn" id="2_gy3sr"]
+[ext_resource type="Script" uid="uid://1oeu07vlnewx" path="res://BulletSystem/bullet_manager.gd" id="3_1lwx6"]
 
 [node name="TestWorld" type="Node2D" unique_id=896232054]
 
@@ -16,3 +17,7 @@ position = Vector2(438, 627)
 
 [node name="TestAsteroid3" parent="." unique_id=327992681 instance=ExtResource("2_gy3sr")]
 position = Vector2(230, 777)
+
+[node name="BulletManager" type="Node2D" parent="." unique_id=2038823690]
+script = ExtResource("3_1lwx6")
+metadata/_custom_type_script = "uid://1oeu07vlnewx"
