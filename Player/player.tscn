@@ -24,6 +24,7 @@ debug_color = Color(0.5294118, 0.80784315, 0.92156863, 0.625)
 
 [node name="HealthNode" type="Node2D" parent="." unique_id=189239524]
 script = ExtResource("5_k53q1")
+_use_guts = null
 metadata/_custom_type_script = "uid://bu5oylwrilq1v"
 
 [connection signal="was_hit" from="Hitbox" to="." method="_on_hitbox_was_hit"]

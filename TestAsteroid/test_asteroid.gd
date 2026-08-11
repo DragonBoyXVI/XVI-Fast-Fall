@@ -12,4 +12,4 @@ func _physics_process( delta: float ) -> void:
 
 
 func _on_hurtbox_found_hitbox( hitbox: Hitbox ) -> void:
-	hitbox.take_hit( DamageInst.new( randi() % 3 + 1 ) );
+	hitbox.take_hit( DamageInst.new( randi() % 3 + 2 ) );

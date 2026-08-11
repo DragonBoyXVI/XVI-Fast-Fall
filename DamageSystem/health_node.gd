@@ -17,6 +17,8 @@ signal health_changed( current_health: int, max_health: int );
 signal died();
 
 
+## If true, this hp node wont take fatal damage unless its at 1 hp.
+@export var _use_guts: bool = false;
 ## The base amount of hp this node wil have before scaling.
 @export var _base_health: int = 5:
 	set( new ):
@@ -111,7 +113,10 @@ func take_damage( damage: DamageInst ) -> void:
 	if ( _is_dead ):
 		return;
 	
-	_current_hp -= damage.amount;
+	if ( _current_hp > 1 ):
+		_current_hp = maxi( _current_hp - damage.amount, 1 );
+	else:
+		_current_hp -= damage.amount;
 	health_changed.emit( _current_hp, _max_hp );
 	
 	if ( _current_hp <= 0 ):
