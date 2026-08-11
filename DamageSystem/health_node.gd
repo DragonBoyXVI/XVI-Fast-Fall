@@ -7,6 +7,9 @@ class_name HealthNode;
 ## hlpth
 
 
+const _HP_GRADIENT: Gradient = preload( "res://DamageSystem/health_gradient.tres" );
+
+
 ## Emitted whenever the health values change.
 signal health_changed( current_health: int, max_health: int );
 ## Emitted when this health node dies.
@@ -89,7 +92,8 @@ func _draw() -> void:
 		base_rect.size * Vector2( health_percent, 1.0 )
 	);
 	
-	draw_rect( health_rect, Color.GREEN );
+	var hp_color: Color = _HP_GRADIENT.sample( health_percent );
+	draw_rect( health_rect, hp_color );
 
 
 func get_current_health() -> int:
