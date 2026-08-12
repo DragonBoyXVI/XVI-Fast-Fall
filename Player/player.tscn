@@ -5,10 +5,12 @@
 [ext_resource type="Script" uid="uid://dxbfjway7omcp" path="res://DamageSystem/hitbox.gd" id="3_gwnis"]
 [ext_resource type="Shape2D" uid="uid://1jekxexcwqg0" path="res://Player/hitbox_shape.tres" id="4_k53q1"]
 [ext_resource type="Script" uid="uid://bu5oylwrilq1v" path="res://DamageSystem/health_node.gd" id="5_k53q1"]
+[ext_resource type="Script" uid="uid://cmeege3myibsg" path="res://BulletSystem/shooter_node.gd" id="6_fhl08"]
 
-[node name="Player" type="Node2D" unique_id=1719502678 node_paths=PackedStringArray("_health_node")]
+[node name="Player" type="Node2D" unique_id=1719502678 node_paths=PackedStringArray("_health_node", "_shooter_node")]
 script = ExtResource("1_l8h54")
 _health_node = NodePath("HealthNode")
+_shooter_node = NodePath("ShooterNode")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1904577113]
 texture = ExtResource("2_4ntmi")
@@ -26,5 +28,12 @@ debug_color = Color(0.5294118, 0.80784315, 0.92156863, 0.625)
 script = ExtResource("5_k53q1")
 metadata/_custom_type_script = "uid://bu5oylwrilq1v"
 
+[node name="ShooterNode" type="Node2D" parent="." unique_id=1199988213]
+position = Vector2(0, 8)
+rotation = 1.5707964
+script = ExtResource("6_fhl08")
+metadata/_custom_type_script = "uid://cmeege3myibsg"
+
 [connection signal="was_hit" from="Hitbox" to="." method="_on_hitbox_was_hit"]
 [connection signal="died" from="HealthNode" to="." method="_on_health_node_died"]
+[connection signal="shot_fired" from="ShooterNode" to="." method="_on_shooter_node_shot_fired"]

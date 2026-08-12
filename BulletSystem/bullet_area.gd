@@ -1,6 +1,10 @@
 @tool
 extends Bullet;
 class_name AreaBullet;
+## A bullet that uses a physics area to detect [Hitbox] nodes.
+##
+## Should be much faster than using shape casts, as all this does is
+## create a [PhysicsServer2D] area, configure it, then transform it every tick.
 
 
 const PLAY_AREA: Rect2 = Rect2(

@@ -21,7 +21,7 @@ X Player has health
 Player Abilites
 X Moves in all four directions
 - Dash that gives iframes and speed boost
-- Shoot primary weapon (cant shoot while dashing)
+X Shoot primary weapon (TODO: cant shoot while dashing)
 - Extra button for a special action
 - Stats modifiable in the shop (speed, atk, hp, etc)
 - LT: Player models/loadouts that affect gameplay
@@ -29,7 +29,7 @@ X Moves in all four directions
 Damage System
 X Hitbox component that emits a signal when hit
 X Hurtbox component that emits a signal when it finds a hitbox
-- Bullets should act similar to hurtboxes
+X Bullets should act similar to hurtboxes
 - Damage should be logged for player stats. (ex. player has done x damage to y enemy type in all their play history)
 
 Bullet System
@@ -40,7 +40,7 @@ though this should mostly handle simple samey bullets.
 - Advanced bullets or attacks can ignore this system and be scenes.
 
 Health System
-- Health component that can draw a health bar if enabled
+X Health component that can draw a health bar if enabled
 - Should be able to grab hp % and tell it to scale hp
 - Should be able to query death state
 - Player hp in a global state?
