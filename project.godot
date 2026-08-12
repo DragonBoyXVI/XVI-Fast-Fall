@@ -34,6 +34,10 @@ window/size/viewport_height=720
 
 project/assembly_name="Fast Fall"
 
+[editor]
+
+run/main_run_args="--dev"
+
 [input]
 
 Enter={

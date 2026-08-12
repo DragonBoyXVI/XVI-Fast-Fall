@@ -15,10 +15,10 @@ var _shape_rid: RID;
 
 
 ## Radius of this bullets detection area
-var radius: float = 4.0;
+var radius: float = 8.0;
 
 ## How many pix/sec the bullet flies.
-var speed: float = randf_range( 200, 400 );
+var speed: float = 400.0;
 
 
 func _notification( what: int ) -> void:
@@ -34,9 +34,6 @@ func _notification( what: int ) -> void:
 
 
 func initialize( world: World2D ) -> void:
-	
-	#TEST
-	transform = transform.rotated_local( TAU * randf() );
 	
 	_shape_rid = PhysicsServer2D.circle_shape_create();
 	PhysicsServer2D.shape_set_data( _shape_rid, radius );
@@ -58,6 +55,9 @@ func draw( draw_node: Node2D ) -> void:
 	
 	var offset: Vector2 = TEXTURE.get_size() * -0.5;
 	draw_node.draw_texture( TEXTURE, offset );
+	
+	if ( GameState.dev_mode ):
+		draw_node.draw_circle( Vector2.ZERO, radius, Hurtbox.SHAPE_COLOR );
 	
 	draw_node.draw_set_transform_matrix( Transform2D.IDENTITY );
 
