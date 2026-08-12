@@ -13,12 +13,17 @@ const TEXTURE = preload( "res://XVI Assets/Images/Script Icons/state_node.atlast
 var _area_rid: RID;
 var _shape_rid: RID;
 
+var _is_alive: bool = true;
+
 
 ## Radius of this bullets detection area
 var radius: float = 8.0;
 
 ## How many pix/sec the bullet flies.
 var speed: float = 400.0;
+
+## How many [Hitbox]es this goes through before dying
+var peirces: int = 0;
 
 
 func _notification( what: int ) -> void:
@@ -48,7 +53,7 @@ func initialize( world: World2D ) -> void:
 	PhysicsServer2D.area_set_transform( _area_rid, transform );
 
 func is_drawable() -> bool:
-	return PLAY_AREA.has_point( transform.origin );
+	return PLAY_AREA.has_point( transform.origin ) and _is_alive;
 
 func draw( draw_node: Node2D ) -> void:
 	draw_node.draw_set_transform_matrix( transform );
@@ -74,3 +79,7 @@ func _on_area_monitor_callback( status: PhysicsServer2D.AreaBodyStatus, area_rid
 	
 	if ( status == PhysicsServer2D.AREA_BODY_ADDED ):
 		Radio.emit_bullet_hit_hitbox( area_rid, damage_inst );
+		
+		peirces -= 1;
+		if ( peirces < 0 ):
+			_is_alive = false;
