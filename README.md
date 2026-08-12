@@ -11,8 +11,9 @@ Mark off the relivant to do notes when you do something
 
 Establish the main gameplay loop
 X A player that moves
-- Player can shoot bulltes
+X Player can shoot bulltes
 X Player has health
+X Player can dash
 - A game over screen thats shown when player dies
 - A next layer transition that happens after some citeria
 
@@ -20,8 +21,8 @@ X Player has health
 
 Player Abilites
 X Moves in all four directions
-- Dash that gives iframes and speed boost
-X Shoot primary weapon (TODO: cant shoot while dashing)
+X Dash that gives iframes and speed boost
+X Shoot primary weapon (cant shoot while dashing)
 - Extra button for a special action
 - Stats modifiable in the shop (speed, atk, hp, etc)
 - LT: Player models/loadouts that affect gameplay

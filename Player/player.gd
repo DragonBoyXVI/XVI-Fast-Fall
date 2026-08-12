@@ -1,30 +1,27 @@
 extends Node2D
 
 
-const _move_speed: float = 400.0;
+const STATE_FREE := &"PlayerFree";
+const STATE_DASH := &"PlayerDash";
 
 
+@export_group( "Comps" )
 @export var _health_node: HealthNode;
-@export var _shooter_node: ShooterNode;
 
 
 func _ready() -> void:
 	pass
 
-func _physics_process( delta: float ) -> void:
-	_movement( delta, InputNames.get_move_dir() );
-	
-	_shooter_node.trigger_held = Input.is_action_pressed( InputNames.ENTER );
 
-
-func _movement( delta: float, dir: Vector2 ) -> void:
+func routine_movement( delta: float, dir: Vector2, speed: float ) -> void:
 	
-	var movement_offset: Vector2 = dir * delta * _move_speed;
+	var movement_offset: Vector2 = dir * delta * speed;
 	translate( movement_offset );
 	position = position.clamp( Vector2.ZERO, Consts.SCREEN_SIZE );
 
 
 func _on_hitbox_was_hit( dmg: DamageInst ) -> void:
+	
 	print( "ow! %s" % dmg.amount );
 	_health_node.take_damage( dmg );
 

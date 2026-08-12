@@ -6,11 +6,13 @@
 [ext_resource type="Shape2D" uid="uid://1jekxexcwqg0" path="res://Player/hitbox_shape.tres" id="4_k53q1"]
 [ext_resource type="Script" uid="uid://bu5oylwrilq1v" path="res://DamageSystem/health_node.gd" id="5_k53q1"]
 [ext_resource type="Script" uid="uid://cmeege3myibsg" path="res://BulletSystem/shooter_node.gd" id="6_fhl08"]
+[ext_resource type="Script" uid="uid://c1v720exdvjg1" path="res://XVI Template/State Machines/state_machine.gd" id="7_vtle1"]
+[ext_resource type="Script" uid="uid://t3li8y1ed3gq" path="res://Player/states/player_free.gd" id="8_od3ui"]
+[ext_resource type="Script" uid="uid://iuvc6e8mlijt" path="res://Player/states/player_dash.gd" id="9_00tjw"]
 
-[node name="Player" type="Node2D" unique_id=1719502678 node_paths=PackedStringArray("_health_node", "_shooter_node")]
+[node name="Player" type="Node2D" unique_id=1719502678 node_paths=PackedStringArray("_health_node")]
 script = ExtResource("1_l8h54")
 _health_node = NodePath("HealthNode")
-_shooter_node = NodePath("ShooterNode")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1904577113]
 texture = ExtResource("2_4ntmi")
@@ -33,6 +35,22 @@ position = Vector2(0, 8)
 rotation = 1.5707964
 script = ExtResource("6_fhl08")
 metadata/_custom_type_script = "uid://cmeege3myibsg"
+
+[node name="StateMachine" type="Node" parent="." unique_id=1301736250 node_paths=PackedStringArray("_initial_state")]
+script = ExtResource("7_vtle1")
+_initial_state = NodePath("PlayerFree")
+metadata/_custom_type_script = "uid://c1v720exdvjg1"
+
+[node name="PlayerFree" type="Node" parent="StateMachine" unique_id=1060991140 node_paths=PackedStringArray("_shooter_node", "_player")]
+script = ExtResource("8_od3ui")
+_shooter_node = NodePath("../../ShooterNode")
+_player = NodePath("../..")
+
+[node name="PlayerDash" type="Node" parent="StateMachine" unique_id=642246113 node_paths=PackedStringArray("_hitbox", "_player")]
+script = ExtResource("9_00tjw")
+_duration = 2.0
+_hitbox = NodePath("../../Hitbox")
+_player = NodePath("../..")
 
 [connection signal="was_hit" from="Hitbox" to="." method="_on_hitbox_was_hit"]
 [connection signal="died" from="HealthNode" to="." method="_on_health_node_died"]
