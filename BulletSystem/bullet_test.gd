@@ -11,7 +11,7 @@ var _draw_area: Rect2;
 var _speed := randf_range( 400.0, 800.0 ) * 0.25;
 
 
-func initialize() -> void:
+func initialize( _world: World2D ) -> void:
 	_draw_area = Rect2(
 		TEXTURE.get_size(),
 		Vector2( Consts.SCREEN_SIZE ) + TEXTURE.get_size()

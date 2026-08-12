@@ -44,6 +44,13 @@ func _ready() -> void:
 		return;
 	
 	collision_layer = collision_layers_from_team( _team );
+	
+	Radio.bullet_hit_hitbox.connect( _on_radio_bullet_hit_hitbox, CONNECT_DEFERRED );
 
 func _shape_entered_tree( shape: CollisionShape2D ) -> void:
 	shape.debug_color = SHAPE_COLOR;
+
+
+func _on_radio_bullet_hit_hitbox( hitbox_rid: RID, damage: DamageInst ) -> void:
+	if ( hitbox_rid == get_rid() ):
+		take_hit( damage );

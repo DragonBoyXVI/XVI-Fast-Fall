@@ -6,7 +6,7 @@ class_name BulletManager;
 
 
 static func get_tick_split_for_bullet_count( count: int ) -> int:
-	var tick_split := ceili( count / 100000000.0 );
+	var tick_split := ceili( count * 0.01 );
 	return maxi( 1, tick_split );
 
 
@@ -77,6 +77,6 @@ func _draw() -> void:
 
 func _on_radio_bullet_fired( bullet: Bullet ) -> void:
 	
-	bullet.initialize();
+	bullet.initialize( get_world_2d() );
 	_active_physics_bullets.append( bullet );
 	_active_draw_bullets.append( bullet );

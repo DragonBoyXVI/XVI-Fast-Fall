@@ -26,7 +26,7 @@ var physics_time: float = 0.0;
 
 
 ## Inits some data for this.
-@abstract func initialize() -> void;
+@abstract func initialize( world: World2D ) -> void;
 
 ## Return true if this can be drawn
 @abstract func is_drawable() -> bool;
