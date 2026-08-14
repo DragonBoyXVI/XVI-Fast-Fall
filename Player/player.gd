@@ -26,6 +26,13 @@ func _on_health_node_died() -> void:
 	print( "Game Over!" );
 	_state_machine.set_deferred( &"process_mode", PROCESS_MODE_DISABLED );
 	
+	Engine.time_scale = 0.01;
+	var time_tween := get_tree().create_tween();
+	time_tween.set_ease( Tween.EASE_IN );
+	#time_tween.set_trans( Tween.TRANS_EXPO );
+	time_tween.set_pause_mode( Tween.TWEEN_PAUSE_PROCESS );
+	time_tween.tween_property( Engine, ^"time_scale", 1.0, 1.0 );
+	
 	var tween := create_tween();
 	tween.tween_property( self, ^"modulate", Color.TRANSPARENT, 2.0 );
 	
