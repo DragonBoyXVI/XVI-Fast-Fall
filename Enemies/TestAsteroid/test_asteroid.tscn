@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dxti6haf1he8"]
 
 [ext_resource type="Texture2D" uid="uid://cmhhtda462n1m" path="res://XVI Assets/Images/Script Icons/state_machine_simple.atlastex" id="1_rw412"]
-[ext_resource type="Script" uid="uid://fnhip37oqaiv" path="res://TestAsteroid/test_asteroid.gd" id="1_umlvy"]
+[ext_resource type="Script" uid="uid://fnhip37oqaiv" path="res://Enemies/TestAsteroid/test_asteroid.gd" id="1_umlvy"]
 [ext_resource type="Script" uid="uid://g26ak1f54u2t" path="res://DamageSystem/hurtbox.gd" id="2_fgjqv"]
 [ext_resource type="Script" uid="uid://dxbfjway7omcp" path="res://DamageSystem/hitbox.gd" id="4_u3yx7"]
 

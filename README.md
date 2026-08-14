@@ -14,8 +14,11 @@ X A player that moves
 X Player can shoot bulltes
 X Player has health
 X Player can dash
-- A game over screen thats shown when player dies
+X A game over screen thats shown when player dies
+- Enemy Spawner that spawns enemies
 - A next layer transition that happens after some citeria
+
+- We need to be able to change scenes without needing to dupe the window/ui scenes
 
 # Todo!
 
@@ -38,7 +41,7 @@ X Bullet manager that ticks bullet objects
 X Tick offsets so not every bullet is ticked per frame
 X Base bullet class to allow for diffrent bullet types,
 though this should mostly handle simple samey bullets.
-- Advanced bullets or attacks can ignore this system and be scenes.
+X Advanced bullets or attacks can ignore this system and be scenes.
 
 Health System
 X Health component that can draw a health bar if enabled

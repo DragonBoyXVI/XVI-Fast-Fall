@@ -51,3 +51,10 @@ enum Team {
 	
 	ALL = 0b11,
 }
+
+enum Menu {
+	MAIN_MENU,
+	GAME_OVER,
+	
+	ANY,
+}

@@ -21,6 +21,10 @@ var _extra_draw: bool = false;
 var _tick_offset: int = 0;
 
 
+func _init() -> void:
+	
+	z_index = Consts.ZLayers.BULLETS;
+
 func _ready() -> void:
 	
 	Radio.bullet_fired.connect( _on_radio_bullet_fired, CONNECT_DEFERRED );

@@ -7,6 +7,10 @@ signal pause_changed( is_paused: bool );
 func emit_pause_changed( is_paused: bool ) -> void:
 	pause_changed.emit( is_paused );
 
+signal player_died();
+func emit_player_died() -> void:
+	player_died.emit();
+
 #endregion Game State
 
 #region Settings
@@ -31,3 +35,11 @@ func emit_bullet_hit_hitbox( hitbox_rid: RID, damage: DamageInst ) -> void:
 	bullet_hit_hitbox.emit( hitbox_rid, damage );
 
 #endregion BulletSystem
+
+#region Menus
+
+signal open_menu_requested( menu: Consts.Menu );
+func request_open_menu( menu: Consts.Menu ) -> void:
+	open_menu_requested.emit( menu );
+
+#endregion Menues

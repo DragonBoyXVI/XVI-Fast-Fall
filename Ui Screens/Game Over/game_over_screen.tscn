@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://c775xq2wfqv5w"]
+
+[ext_resource type="Script" uid="uid://dtonk70cv3nt8" path="res://CustomUiNodes/xvi_button.gd" id="1_00rco"]
+[ext_resource type="Script" uid="uid://dq1wtbaq5ly" path="res://Ui Screens/Game Over/game_over_screen.gd" id="1_m1lq7"]
+
+[node name="GameOverScreen" type="Control" unique_id=364724088]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m1lq7")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1436665063]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer" unique_id=948649966]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PanelContainer" unique_id=2009078508]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer" unique_id=1833156889]
+layout_mode = 2
+alignment = 1
+
+[node name="GameOverLabel" type="Label" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=38037750]
+layout_mode = 2
+text = "KEY_GAME_OVER"
+horizontal_alignment = 1
+
+[node name="MainMenuButton" type="Button" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1631159875]
+layout_mode = 2
+text = "KEY_MAIN_MENU"
+script = ExtResource("1_00rco")
+metadata/_custom_type_script = "uid://dtonk70cv3nt8"
+
+[connection signal="pressed" from="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]

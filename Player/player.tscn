@@ -10,9 +10,10 @@
 [ext_resource type="Script" uid="uid://t3li8y1ed3gq" path="res://Player/states/player_free.gd" id="8_od3ui"]
 [ext_resource type="Script" uid="uid://iuvc6e8mlijt" path="res://Player/states/player_dash.gd" id="9_00tjw"]
 
-[node name="Player" type="Node2D" unique_id=1719502678 node_paths=PackedStringArray("_health_node")]
+[node name="Player" type="Node2D" unique_id=1719502678 node_paths=PackedStringArray("_health_node", "_state_machine")]
 script = ExtResource("1_l8h54")
 _health_node = NodePath("HealthNode")
+_state_machine = NodePath("StateMachine")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1904577113]
 texture = ExtResource("2_4ntmi")

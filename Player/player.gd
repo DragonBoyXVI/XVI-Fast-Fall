@@ -7,10 +7,7 @@ const STATE_DASH := &"PlayerDash";
 
 @export_group( "Comps" )
 @export var _health_node: HealthNode;
-
-
-func _ready() -> void:
-	pass
+@export var _state_machine: StateMachine
 
 
 func routine_movement( delta: float, dir: Vector2, speed: float ) -> void:
@@ -27,6 +24,14 @@ func _on_hitbox_was_hit( dmg: DamageInst ) -> void:
 
 func _on_health_node_died() -> void:
 	print( "Game Over!" );
+	_state_machine.set_deferred( &"process_mode", PROCESS_MODE_DISABLED );
+	
+	var tween := create_tween();
+	tween.tween_property( self, ^"modulate", Color.TRANSPARENT, 2.0 );
+	
+	Radio.emit_player_died();
+	await tween.finished;
+	Radio.request_open_menu( Consts.Menu.GAME_OVER );
 	queue_free();
 
 func _on_shooter_node_shot_fired( bullet_transform: Transform2D ) -> void:
