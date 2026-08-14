@@ -15,10 +15,13 @@ X Player can shoot bulltes
 X Player has health
 X Player can dash
 X A game over screen thats shown when player dies
-- Enemy Spawner that spawns enemies
+X Enemy Spawner that spawns enemies
 - A next layer transition that happens after some citeria
 
 - We need to be able to change scenes without needing to dupe the window/ui scenes
+- Screen fader
+- Scene changer
+- Something to end the round when quota is met
 
 # Todo!
 

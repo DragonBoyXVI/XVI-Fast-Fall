@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://qxe2a3uw63l5"]
+
+[ext_resource type="Script" uid="uid://bmknt7sxwdknf" path="res://Game World/game_world.gd" id="1_wkrvw"]
+
+[node name="GameWorld" type="Node2D" unique_id=1815284459]
+script = ExtResource("1_wkrvw")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1704601586]
+
+[node name="CurrentRoom" type="Node2D" parent="." unique_id=241106709]
