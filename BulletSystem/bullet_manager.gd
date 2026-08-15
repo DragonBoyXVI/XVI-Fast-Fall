@@ -71,7 +71,12 @@ func _physics_process( delta: float ) -> void:
 	_tick_offset += 1;
 
 func _draw() -> void:
-	draw_string( ThemeDB.fallback_font, Vector2( 16.0, 64.0 ), str( _active_physics_bullets.size() ) );
+	
+	if ( GameState.dev_mode ):
+		
+		draw_string( ThemeDB.fallback_font, Vector2( 16.0, 64.0 ), str( _active_physics_bullets.size() ) );
+		draw_string( ThemeDB.fallback_font, Vector2( 16.0, 80.0 ), str( _active_draw_bullets.size() ) );
+	
 	if ( _active_draw_bullets.is_empty() ):
 		return;
 	

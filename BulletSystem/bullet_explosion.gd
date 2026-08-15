@@ -19,7 +19,6 @@ var _current_radius: float = 1.0;
 var _die_time: float = 0.0;
 
 
-var _is_dead: bool = false;
 var _is_growing: bool = true;
 
 
@@ -32,6 +31,10 @@ func is_drawable() -> bool:
 	return _die_time < FADE_OUT_TIME;
 
 func draw( draw_node: Node2D ) -> void:
+	
+	if ( not _is_growing ):
+		_die_time += draw_node.get_process_delta_time();
+	
 	const FUll_COLOR := Hurtbox.SHAPE_COLOR;
 	const FADE_COLOR := Color( FUll_COLOR, 0.0 );
 	
@@ -39,7 +42,7 @@ func draw( draw_node: Node2D ) -> void:
 	draw_node.draw_circle( transform.origin, _current_radius, color );
 
 func is_physics_processable() -> bool:
-	return not _is_dead;
+	return _is_growing;
 
 func physics_process( delta: float, _world: World2D ) -> void:
 	
@@ -50,8 +53,6 @@ func physics_process( delta: float, _world: World2D ) -> void:
 		
 		if ( _current_radius >= max_radius ):
 			_is_growing = false;
-	else:
-		_die_time += delta;
 
 
 func _on_area_monitor_callback( status: PhysicsServer2D.AreaBodyStatus, area_rid: RID, _instance_id: int, _area_shape_index: int, _self_shape_index: int ) -> void:
