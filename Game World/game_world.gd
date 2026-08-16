@@ -14,8 +14,10 @@ func _ready() -> void:
 
 
 func change_room( room_path: String ) -> void:
-
-	# pause current room?
+	
+	Room.autopause = true;
+	if ( _current_room is Room ):
+		_current_room.pause.call_deferred();
 	
 	_screen_fade_manager.fade_in();
 	await _screen_fade_manager.fade_done;
@@ -26,13 +28,13 @@ func change_room( room_path: String ) -> void:
 		_current_room.queue_free();
 	_current_room = room_scene.instantiate();
 	add_child( _current_room );
-
-	# pause room again?
-	# does room auto pause?
+	
 	
 	_screen_fade_manager.fade_out();
 	await _screen_fade_manager.fade_done;
 	
-	# unpause room
+	Room.autopause = false;
+	if ( _current_room is Room ):
+		_current_room.resume.call_deferred();
 	
 	pass

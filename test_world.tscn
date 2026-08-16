@@ -1,11 +1,14 @@
 [gd_scene format=3 uid="uid://dbabhyeg4yul8"]
 
 [ext_resource type="PackedScene" uid="uid://pqntxoy6xkil" path="res://Player/player.tscn" id="1_dxppu"]
+[ext_resource type="Script" uid="uid://ccjq171jdupp8" path="res://Game World/Rooms/room.gd" id="1_lf0gk"]
 [ext_resource type="PackedScene" uid="uid://dxti6haf1he8" path="res://Enemies/TestAsteroid/test_asteroid.tscn" id="2_gy3sr"]
 [ext_resource type="Script" uid="uid://b8s42n80fmvs4" path="res://Enemies/enemy_spawner.gd" id="2_lf0gk"]
 [ext_resource type="Script" uid="uid://1oeu07vlnewx" path="res://BulletSystem/bullet_manager.gd" id="3_1lwx6"]
 
-[node name="TestWorld" type="Node2D" unique_id=896232054]
+[node name="TestWorld" type="Node2D" unique_id=1097796839]
+script = ExtResource("1_lf0gk")
+metadata/_custom_type_script = "uid://ccjq171jdupp8"
 
 [node name="EnemySpawner" type="Node" parent="." unique_id=1840557963]
 script = ExtResource("2_lf0gk")
