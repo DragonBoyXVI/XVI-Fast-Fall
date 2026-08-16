@@ -17,7 +17,8 @@ func change_room( room_path: String ) -> void:
 
 	# pause current room?
 	
-	await _screen_fade_manager.fade_in();
+	_screen_fade_manager.fade_in();
+	await _screen_fade_manager.fade_done;
 	
 	var room_scene: PackedScene = await XVIFuncs.load_resource_coroutine( room_path, "PackedScene" );
 	assert( room_scene.can_instantiate() );
@@ -29,7 +30,8 @@ func change_room( room_path: String ) -> void:
 	# pause room again?
 	# does room auto pause?
 	
-	await _screen_fade_manager.fade_out();
+	_screen_fade_manager.fade_out();
+	await _screen_fade_manager.fade_done;
 	
 	# unpause room
 	

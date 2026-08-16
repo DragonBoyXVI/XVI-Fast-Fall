@@ -10,6 +10,9 @@ const ANIM_IN := &"fade_in";
 const ANIM_OUT := &"fade_out";
 
 
+signal anim_done();
+
+
 ## Anim player used to animate the fades
 @export var _animation_player: AnimationPlayer:
 	set( new ):
@@ -34,7 +37,10 @@ func _ready() -> void:
 		
 		set_anchors_preset( Control.PRESET_FULL_RECT );
 		
-		return XVIFuncs.set_node_processes( self, false );
+		XVIFuncs.set_node_processes( self, false );
+		return
+	
+	print( can_process() );
 
 func _get_configuration_warnings() -> PackedStringArray:
 	var warnings := PackedStringArray();
@@ -51,8 +57,9 @@ func _get_configuration_warnings() -> PackedStringArray:
 	return warnings;
 
 
-func play_anim( anim: StringName ) -> Signal:
+func play_anim( anim: StringName ) -> void:
 	
 	assert( _animation_player.has_animation( anim ) );
 	_animation_player.play( anim );
-	return _animation_player.animation_finished;
+	await _animation_player.animation_finished;
+	anim_done.emit();

@@ -2,6 +2,9 @@ extends Control;
 class_name ScreenFaderManager;
 
 
+signal fade_done();
+
+
 @export_file( "*.tscn", "*.scn" ) var _default_fader_path: String = "";
 
 
@@ -34,15 +37,19 @@ func load_fader_threaded( fader_path: String ) -> void:
 	if ( _current_fader ):
 		_current_fader.queue_free();
 	_current_fader = fader_node;
+	add_child( _current_fader );
 
 	_is_fader_ready = true;
 
 
-func fade_in() -> Signal:
+func fade_in() -> void:
 	show();
-	return _current_fader.play_anim( ScreenFader.ANIM_IN );
+	_current_fader.play_anim( ScreenFader.ANIM_IN );
+	await _current_fader.anim_done;
+	fade_done.emit();
 
-func fade_out() -> Signal:
-	var sig := _current_fader.play_anim( ScreenFader.ANIM_OUT );
-	sig.connect( hide, CONNECT_ONE_SHOT );
-	return sig;
+func fade_out() -> void:
+	_current_fader.play_anim( ScreenFader.ANIM_OUT );
+	await _current_fader.anim_done;
+	fade_done.emit();
+	hide();
