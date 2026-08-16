@@ -1,0 +1,4 @@
+
+-- Lead dev/programmer: DragonXVI
+
+-- Universal Transition Shader: Cashew OldDew

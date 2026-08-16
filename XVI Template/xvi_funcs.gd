@@ -11,7 +11,7 @@ class_name XVIFuncs;
 ## the "enabled" argument.
 ## By default, this will disable all processes.
 static func set_node_processes( node: Node, enabled: bool = false ) -> void:
-	
+
 	node.set_process( enabled );
 	node.set_physics_process( enabled );
 	node.set_process_input( enabled );
@@ -25,12 +25,14 @@ static func set_node_processes( node: Node, enabled: bool = false ) -> void:
 ## All of the arguments are the same as the resource loader thread ones, including the progress array.
 static func load_resource_coroutine( resource_path: String, type_hint: String = "", progress: Array[ float ] = [] ) -> Resource:
 	assert( ResourceLoader.exists( resource_path ), " Resource doesn't exist: %s" % resource_path );
-	
+
 	var error := ResourceLoader.load_threaded_request( resource_path, type_hint );
 	if ( error != OK ):
 		push_error( "Could not load resource %s on thread: %s" % [ resource_path, error_string( error ) ] );
 		return null;
-	
+
+	GameState.things_loading += 1;
+
 	while true:
 		var load_status := ResourceLoader.load_threaded_get_status( resource_path, progress );
 		if ( load_status == ResourceLoader.THREAD_LOAD_LOADED ):
@@ -39,5 +41,7 @@ static func load_resource_coroutine( resource_path: String, type_hint: String = 
 			await ( Engine.get_main_loop() as SceneTree ).process_frame;
 		else:
 			return null;
-	
+
+	GameState.things_loading -= 1;
+
 	return ResourceLoader.load_threaded_get( resource_path );

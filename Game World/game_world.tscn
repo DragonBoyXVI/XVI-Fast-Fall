@@ -1,13 +1,26 @@
 [gd_scene format=3 uid="uid://qxe2a3uw63l5"]
 
 [ext_resource type="Script" uid="uid://bmknt7sxwdknf" path="res://Game World/game_world.gd" id="1_wkrvw"]
+[ext_resource type="Script" uid="uid://c083io51cfy0v" path="res://ScreenFaderSystem/screen_fader_manager.gd" id="2_aijf0"]
 [ext_resource type="PackedScene" uid="uid://c775xq2wfqv5w" path="res://Ui Screens/Game Over/game_over_screen.tscn" id="2_b1bel"]
 
-[node name="GameWorld" type="Node2D" unique_id=1815284459 node_paths=PackedStringArray("_current_room")]
+[node name="GameWorld" type="Node2D" unique_id=1815284459 node_paths=PackedStringArray("_current_room", "_screen_fade_manager")]
 script = ExtResource("1_wkrvw")
 _current_room = NodePath("CurrentRoom")
+_screen_fade_manager = NodePath("CanvasLayer/ScreenFaderManager")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1704601586]
+
+[node name="ScreenFaderManager" type="Control" parent="CanvasLayer" unique_id=1328187877]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_aijf0")
+_default_fader_path = "uid://66uwkndvyc1o"
+metadata/_custom_type_script = "uid://c083io51cfy0v"
 
 [node name="GameOverScreen" parent="CanvasLayer" unique_id=364724088 instance=ExtResource("2_b1bel")]
 visible = false

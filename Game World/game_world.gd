@@ -2,6 +2,7 @@ extends Node2D
 
 
 @export var _current_room: Node2D;
+@export var _screen_fade_manager: ScreenFaderManager;
 
 
 func _ready() -> void:
@@ -15,9 +16,9 @@ func _ready() -> void:
 func change_room( room_path: String ) -> void:
 
 	# pause current room?
-
-	# await screen fade out
-
+	
+	await _screen_fade_manager.fade_in();
+	
 	var room_scene: PackedScene = await XVIFuncs.load_resource_coroutine( room_path, "PackedScene" );
 	assert( room_scene.can_instantiate() );
 	if ( _current_room ):
@@ -27,9 +28,9 @@ func change_room( room_path: String ) -> void:
 
 	# pause room again?
 	# does room auto pause?
-
-	# await screen fade in
-
+	
+	await _screen_fade_manager.fade_out();
+	
 	# unpause room
-
+	
 	pass
