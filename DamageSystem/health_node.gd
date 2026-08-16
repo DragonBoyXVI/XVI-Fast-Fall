@@ -59,32 +59,32 @@ var _is_dead: bool = false;
 
 
 func _ready() -> void:
-	
+
 	if ( Engine.is_editor_hint() ):
 		return;
-	
+
 	_max_hp = _base_health;
 	_current_hp = _max_hp;
 
 func _draw() -> void:
 	if ( not _health_bar_is_shown ):
 		return;
-	
+
 	var half_bar_size: Vector2 = _heatlh_bar_size * 0.5;
 	var base_rect: Rect2 = Rect2(
 		position - half_bar_size + _health_bar_offset,
 		_heatlh_bar_size
 	);
-	
+
 	# back/border
 	var border_vec: Vector2 = ( _health_bar_border * Vector2.ONE );
 	var back_rect: Rect2 = Rect2(
 		base_rect.position - border_vec,
 		base_rect.size + ( border_vec * 2 )
 	);
-	
+
 	draw_rect( back_rect, Color.BLACK );
-	
+
 	# health
 	var health_percent: float = _health_bar_fill
 	if ( not Engine.is_editor_hint() ):
@@ -93,7 +93,7 @@ func _draw() -> void:
 		base_rect.position,
 		base_rect.size * Vector2( health_percent, 1.0 )
 	);
-	
+
 	var hp_color: Color = _HP_GRADIENT.sample( health_percent );
 	draw_rect( health_rect, hp_color );
 
@@ -112,22 +112,22 @@ func get_health_percent() -> float:
 func take_damage( damage: DamageInst ) -> void:
 	if ( _is_dead ):
 		return;
-	
-	if ( _current_hp > 1 ):
+
+	if ( _use_guts and _current_hp > 1 ):
 		_current_hp = maxi( _current_hp - damage.amount, 1 );
 	else:
 		_current_hp -= damage.amount;
 	health_changed.emit( _current_hp, _max_hp );
-	
+
 	if ( _current_hp <= 0 ):
 		_is_dead = true;
 		died.emit();
-	
+
 	queue_redraw();
 
 func take_heal( amount: int ) -> void:
-	
+
 	_current_hp = mini( _current_hp + amount, _max_hp );
 	health_changed.emit( _current_hp, _max_hp );
-	
+
 	queue_redraw();
