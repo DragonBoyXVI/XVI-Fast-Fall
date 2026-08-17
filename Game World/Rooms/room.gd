@@ -24,7 +24,7 @@ func _ready() -> void:
 	var tracker := QuotaScore.new();
 	add_child( tracker );
 	Radio.quota_reached.connect( get_tree().quit, CONNECT_DEFERRED );
-	Radio.quota_reached.connect( print.bind( "QUPTA" ) )
+	Radio.quota_reached.connect( print.bind( "QUPTA" ) );
 
 
 func pause() -> void:

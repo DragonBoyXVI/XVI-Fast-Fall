@@ -30,6 +30,10 @@ debug_color = Color(0.5294118, 0.80784315, 0.92156863, 0.625)
 [node name="HealthNode" type="Node2D" parent="." unique_id=189239524]
 script = ExtResource("5_k53q1")
 _use_guts = true
+_scaling_enabled = null
+_scaling_factor = null
+_health_bar_offset = Vector2(0, -64)
+_heatlh_bar_size = Vector2(128, 16)
 metadata/_custom_type_script = "uid://bu5oylwrilq1v"
 
 [node name="ShooterNode" type="Node2D" parent="." unique_id=1199988213]

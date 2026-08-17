@@ -24,6 +24,13 @@ signal died();
 	set( new ):
 		_base_health = maxi( 1, new );
 
+@export_group( "Scaling", "_scaling" )
+## If true, on ready this node scales its health acoording to the params below.
+@export_custom( PROPERTY_HINT_GROUP_ENABLE, "" ) var _scaling_enabled: bool = false;
+## Scalar used with GameState.difficulty to scale health.[br]
+## In simple terms, a scalar of "1.0" means that every difficulty, this gains +1 hp.
+@export var _scaling_factor: float = 1.0;
+
 @export_group( "Health Bar", "_health_bar" )
 ## If enabled, a health bar is drawn to the screen.
 @export_custom( PROPERTY_HINT_GROUP_ENABLE, "" ) var _health_bar_is_shown: bool = true:
@@ -33,7 +40,7 @@ signal died();
 ## Editor only property that lets you choose the fill of the bar.
 @export_custom( PROPERTY_HINT_RANGE, "0.0,1.0,0.01", PROPERTY_USAGE_EDITOR ) var _health_bar_fill: float = 0.5:
 	set( new ):
-		_health_bar_fill = new;
+		_health_bar_fill = roundi( new * _base_health ) / float( _base_health );
 		queue_redraw();
 ## How offset the center of the health bar is from this node
 @export var _health_bar_offset: Vector2 = Vector2( 0.0, 32.0 ):
@@ -41,7 +48,7 @@ signal died();
 		_health_bar_offset = new;
 		queue_redraw();
 ## Size of the health bar, as length and width
-@export var _heatlh_bar_size: Vector2 = Vector2( 128.0, 16.0 ):
+@export var _heatlh_bar_size: Vector2 = Vector2( 32.0, 8.0 ):
 	set( new ):
 		_heatlh_bar_size = new.maxf( 8.0 );
 		queue_redraw();
@@ -62,8 +69,10 @@ func _ready() -> void:
 
 	if ( Engine.is_editor_hint() ):
 		return;
-
+	
 	_max_hp = _base_health;
+	if ( _scaling_enabled ):
+		_max_hp += roundi( _base_health * _scaling_factor * GameState.difficulty );
 	_current_hp = _max_hp;
 
 func _draw() -> void:

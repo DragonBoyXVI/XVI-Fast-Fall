@@ -9,10 +9,11 @@ static var dev_mode: bool = false;
 
 
 static func _static_init() -> void:
-
+	
 	if ( Engine.is_editor_hint() ):
+		dev_mode = true;
 		return;
-
+	
 	dev_mode = CmdArgs.has_arg( CmdArgs.DEV_MODE );
 
 
