@@ -18,9 +18,9 @@ X A game over screen thats shown when player dies
 X Enemy Spawner that spawns enemies
 - A next layer transition that happens after some citeria
 
-- We need to be able to change scenes without needing to dupe the window/ui scenes
-- Screen fader
-- Scene changer
+X We need to be able to change scenes without needing to dupe the window/ui scenes
+X Screen fader
+X Scene changer
 - Something to end the round when quota is met
 
 # Todo!

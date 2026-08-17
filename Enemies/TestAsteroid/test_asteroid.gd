@@ -24,7 +24,4 @@ func _on_hurtbox_found_hitbox( hitbox: Hitbox ) -> void:
 func _on_hitbox_was_hit( _dmg: DamageInst ) -> void:
 	queue_free();
 	
-	var bul := ExplosionBullet.new();
-	bul.transform = global_transform;
-	bul.damage_inst = DamageInst.new( 1 );
-	Radio.fire_bullet( bul );
+	GameState.add_score( randi() % 4 + 1 );

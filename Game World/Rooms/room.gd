@@ -19,6 +19,12 @@ func _ready() -> void:
 	
 	if ( autopause ):
 		pause.call_deferred();
+	
+	#TEST
+	var tracker := QuotaScore.new();
+	add_child( tracker );
+	Radio.quota_reached.connect( get_tree().quit, CONNECT_DEFERRED );
+	Radio.quota_reached.connect( print.bind( "QUPTA" ) )
 
 
 func pause() -> void:

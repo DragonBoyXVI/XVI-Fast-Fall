@@ -43,3 +43,12 @@ func request_open_menu( menu: Consts.Menu ) -> void:
 	open_menu_requested.emit( menu );
 
 #endregion Menues
+
+#region QuotaSystem
+
+## Emitted when the quota for this room has been reached.
+signal quota_reached();
+func emit_quota_reached() -> void:
+	quota_reached.emit();
+
+#endregion QuotaSystem
