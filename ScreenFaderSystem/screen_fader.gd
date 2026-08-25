@@ -39,8 +39,6 @@ func _ready() -> void:
 		
 		XVIFuncs.set_node_processes( self, false );
 		return
-	
-	print( can_process() );
 
 func _get_configuration_warnings() -> PackedStringArray:
 	var warnings := PackedStringArray();

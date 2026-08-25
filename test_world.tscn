@@ -1,14 +1,13 @@
 [gd_scene format=3 uid="uid://dbabhyeg4yul8"]
 
-[ext_resource type="PackedScene" uid="uid://pqntxoy6xkil" path="res://Player/player.tscn" id="1_dxppu"]
-[ext_resource type="Script" uid="uid://ccjq171jdupp8" path="res://Game World/Rooms/room.gd" id="1_lf0gk"]
+[ext_resource type="Script" uid="uid://cs6js6eftg2u3" path="res://Game World/Rooms/game_room.gd" id="1_dsnr4"]
 [ext_resource type="PackedScene" uid="uid://dxti6haf1he8" path="res://Enemies/TestAsteroid/test_asteroid.tscn" id="2_gy3sr"]
 [ext_resource type="Script" uid="uid://b8s42n80fmvs4" path="res://Enemies/enemy_spawner.gd" id="2_lf0gk"]
 [ext_resource type="Script" uid="uid://1oeu07vlnewx" path="res://BulletSystem/bullet_manager.gd" id="3_1lwx6"]
 
-[node name="TestWorld" type="Node2D" unique_id=1097796839]
-script = ExtResource("1_lf0gk")
-metadata/_custom_type_script = "uid://ccjq171jdupp8"
+[node name="TestWorld" type="Node2D" unique_id=1355658780]
+script = ExtResource("1_dsnr4")
+metadata/_custom_type_script = "uid://cs6js6eftg2u3"
 
 [node name="EnemySpawner" type="Node" parent="." unique_id=1840557963]
 script = ExtResource("2_lf0gk")
@@ -18,6 +17,3 @@ metadata/_custom_type_script = "uid://b8s42n80fmvs4"
 [node name="BulletManager" type="Node2D" parent="." unique_id=2038823690]
 script = ExtResource("3_1lwx6")
 metadata/_custom_type_script = "uid://1oeu07vlnewx"
-
-[node name="Player" parent="." unique_id=1719502678 instance=ExtResource("1_dxppu")]
-position = Vector2(221, 131)

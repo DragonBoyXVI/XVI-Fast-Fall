@@ -3,6 +3,7 @@ extends Node2D
 
 const STATE_FREE := &"PlayerFree";
 const STATE_DASH := &"PlayerDash";
+const STATE_INTRO := &"PlayerIntro";
 
 
 @export_group( "Comps" )

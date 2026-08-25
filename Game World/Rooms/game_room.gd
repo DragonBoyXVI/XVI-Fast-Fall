@@ -7,3 +7,16 @@ class_name GameRoom;
 
 
 const PLAYER_SCENE: PackedScene = preload( "uid://pqntxoy6xkil" );
+
+
+var _player: Node2D;
+
+
+func _ready() -> void:
+	super();
+	
+	if ( Engine.is_editor_hint() ):
+		return;
+	
+	_player = PLAYER_SCENE.instantiate();
+	add_child( _player );

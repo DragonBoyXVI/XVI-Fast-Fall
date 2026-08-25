@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://c1v720exdvjg1" path="res://XVI Template/State Machines/state_machine.gd" id="7_vtle1"]
 [ext_resource type="Script" uid="uid://t3li8y1ed3gq" path="res://Player/states/player_free.gd" id="8_od3ui"]
 [ext_resource type="Script" uid="uid://iuvc6e8mlijt" path="res://Player/states/player_dash.gd" id="9_00tjw"]
+[ext_resource type="Script" uid="uid://crybwv4afhp7h" path="res://Player/states/player_room_intro.gd" id="10_x3vf3"]
 
 [node name="Player" type="Node2D" unique_id=1719502678 node_paths=PackedStringArray("_health_node", "_state_machine")]
 script = ExtResource("1_l8h54")
@@ -30,10 +31,8 @@ debug_color = Color(0.5294118, 0.80784315, 0.92156863, 0.625)
 [node name="HealthNode" type="Node2D" parent="." unique_id=189239524]
 script = ExtResource("5_k53q1")
 _use_guts = true
-_scaling_enabled = null
-_scaling_factor = null
 _health_bar_offset = Vector2(0, -64)
-_heatlh_bar_size = Vector2(128, 16)
+_health_bar_size = Vector2(128, 16)
 metadata/_custom_type_script = "uid://bu5oylwrilq1v"
 
 [node name="ShooterNode" type="Node2D" parent="." unique_id=1199988213]
@@ -44,7 +43,7 @@ metadata/_custom_type_script = "uid://cmeege3myibsg"
 
 [node name="StateMachine" type="Node" parent="." unique_id=1301736250 node_paths=PackedStringArray("_initial_state")]
 script = ExtResource("7_vtle1")
-_initial_state = NodePath("PlayerFree")
+_initial_state = NodePath("PlayerIntro")
 metadata/_custom_type_script = "uid://c1v720exdvjg1"
 
 [node name="PlayerFree" type="Node" parent="StateMachine" unique_id=1060991140 node_paths=PackedStringArray("_shooter_node", "_player")]
@@ -56,6 +55,10 @@ _player = NodePath("../..")
 script = ExtResource("9_00tjw")
 _duration = 2.0
 _hitbox = NodePath("../../Hitbox")
+_player = NodePath("../..")
+
+[node name="PlayerIntro" type="Node" parent="StateMachine" unique_id=501019880 node_paths=PackedStringArray("_player")]
+script = ExtResource("10_x3vf3")
 _player = NodePath("../..")
 
 [connection signal="was_hit" from="Hitbox" to="." method="_on_hitbox_was_hit"]

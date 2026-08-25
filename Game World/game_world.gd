@@ -8,7 +8,7 @@ extends Node2D;
 func _ready() -> void:
 
 	var time := get_tree().create_timer( 2.0 );
-	time.timeout.connect( print.bind( "DONW" ) );
+	#time.timeout.connect( print.bind( "DONW" ) );
 	await time.timeout;
 	change_room( "res://test_world.tscn" );
 

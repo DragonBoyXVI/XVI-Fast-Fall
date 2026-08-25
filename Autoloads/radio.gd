@@ -11,6 +11,10 @@ signal player_died();
 func emit_player_died() -> void:
 	player_died.emit();
 
+signal start_round();
+func emit_start_round() -> void:
+	start_round.emit();
+
 #endregion Game State
 
 #region Settings

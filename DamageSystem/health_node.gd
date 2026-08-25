@@ -48,9 +48,9 @@ signal died();
 		_health_bar_offset = new;
 		queue_redraw();
 ## Size of the health bar, as length and width
-@export var _heatlh_bar_size: Vector2 = Vector2( 32.0, 8.0 ):
+@export var _health_bar_size: Vector2 = Vector2( 32.0, 8.0 ):
 	set( new ):
-		_heatlh_bar_size = new.maxf( 8.0 );
+		_health_bar_size = new.maxf( 8.0 );
 		queue_redraw();
 ## How many pixels of padding the bar border has
 @export var _health_bar_border: int = 3:
@@ -79,10 +79,10 @@ func _draw() -> void:
 	if ( not _health_bar_is_shown ):
 		return;
 
-	var half_bar_size: Vector2 = _heatlh_bar_size * 0.5;
+	var half_bar_size: Vector2 = _health_bar_size * 0.5;
 	var base_rect: Rect2 = Rect2(
 		position - half_bar_size + _health_bar_offset,
-		_heatlh_bar_size
+		_health_bar_size
 	);
 
 	# back/border
