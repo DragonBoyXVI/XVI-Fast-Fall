@@ -13,7 +13,7 @@ class_name InputNames;
 	const UP := &"Move Up";
 	
 	static func get_dir() -> Vector2:
-		return Input.get_vector( UP, DOWN, LEFT, RIGHT );
+		return Input.get_vector(LEFT, RIGHT, UP, DOWN );
 
 
 const ACCEPT := &"Accept";

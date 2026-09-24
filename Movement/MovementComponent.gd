@@ -58,13 +58,13 @@ func _physics_process( delta: float ) -> void:
 	
 	var velocity_delta: float = delta;
 	const TURN_LIMIT: float = PI * 0.5;
-	if ( absf( target_velocity.angle_to( _current_velocity ) ) > TURN_LIMIT ):
+	if ( absf( target_velocity.angle_to( _current_velocity ) ) < TURN_LIMIT ):
 		velocity_delta *= acceleration;
 	else:
 		velocity_delta *= decerleration;
 	
 	_current_velocity = _current_velocity.move_toward( target_velocity, velocity_delta );
-	target_node.translate( _current_velocity );
+	target_node.translate( _current_velocity * delta );
 
 
 func hard_stop() -> void:

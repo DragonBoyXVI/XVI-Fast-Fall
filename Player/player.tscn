@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b4lk8m31rrhj6" path="res://icon.svg" id="1_l8h54"]
 [ext_resource type="Script" uid="uid://da7mvybob7fwr" path="res://Movement/MovementComponent.gd" id="2_4ntmi"]
 [ext_resource type="Script" uid="uid://c1v720exdvjg1" path="res://DragonXVI-Godot/StateMachines/state_machine.gd" id="3_btcbx"]
+[ext_resource type="Script" uid="uid://bhxonk7oejdcf" path="res://Player/States/player_state_free.gd" id="5_k53q1"]
 
 [node name="Player" type="Node2D" unique_id=1428343973]
 script = ExtResource("1_gwnis")
@@ -16,6 +17,13 @@ script = ExtResource("2_4ntmi")
 target_node = NodePath("..")
 metadata/_custom_type_script = "uid://da7mvybob7fwr"
 
-[node name="StateMachine" type="Node" parent="." unique_id=826368200]
+[node name="StateMachine" type="Node" parent="." unique_id=826368200 node_paths=PackedStringArray("_initial_state")]
 script = ExtResource("3_btcbx")
+_initial_state = NodePath("PlayerStateFree")
 metadata/_custom_type_script = "uid://c1v720exdvjg1"
+
+[node name="PlayerStateFree" type="Node" parent="StateMachine" unique_id=2014854988 node_paths=PackedStringArray("_movement", "_player")]
+script = ExtResource("5_k53q1")
+_movement = NodePath("../../MovementComponent")
+_player = NodePath("../..")
+metadata/_custom_type_script = "uid://bhxonk7oejdcf"
