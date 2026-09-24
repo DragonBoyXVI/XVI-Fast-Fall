@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://cupsm6cx3cwq2"]
+
+[ext_resource type="Script" uid="uid://b22im63les52v" path="res://GameRoot/ScreenCovers/screen_cover.gd" id="1_lu5ft"]
+
+[sub_resource type="Animation" id="Animation_lu5ft"]
+resource_name = "CoverScreen"
+length = 0.625
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.625),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_gcxws"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_gm5v3"]
+resource_name = "UncoverScreen"
+length = 0.625
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.625),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gm5v3"]
+_data = {
+&"CoverScreen": SubResource("Animation_lu5ft"),
+&"RESET": SubResource("Animation_gcxws"),
+&"UncoverScreen": SubResource("Animation_gm5v3")
+}
+
+[node name="DefaultCover" type="Control" unique_id=135290173 node_paths=PackedStringArray("_animation_player")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lu5ft")
+_animation_player = NodePath("AnimationPlayer")
+metadata/_custom_type_script = "uid://b22im63les52v"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1142675897]
+libraries/ = SubResource("AnimationLibrary_gm5v3")
+
+[node name="TextureRect" type="ColorRect" parent="." unique_id=1331269341]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
