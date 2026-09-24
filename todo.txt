@@ -1,0 +1,30 @@
+
+## Primary game loop
+--- Pregame Steps
+-- Player chooses a game mode
+-- Player chooses a starting character
+
+--- Game Loop
+-- Player enters a shop, they can buy health/upgrades, as well as view their loadout
+-- Player delves into a level, where they fight for their life until an abstract quota is met
+-- Player lands and is awarded their spoils once quota is met
+-- Difficulty is increased
+-- Player given option to save and quit or continue
+-- Restart loop
+
+--- FailState Steps
+-- Player dies
+-- Their score final score is calculated and shown to them
+-- Given option to save score to a local leaderboard
+-- If they do, show the leaderboard, and highlight their score.
+-- Return to main menu to start a new game
+
+
+## Player Abilities
+Move in all directions
+Dash in any direction, being thrust in that direction and immune to damage while dashing
+Shoot at threats below
+Has a set amount of health
+health carries between stages
+can obtain powerups to increase health/damage (persist between levels)
+special actions with the special button
