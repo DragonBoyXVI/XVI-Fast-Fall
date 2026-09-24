@@ -11,9 +11,28 @@ config_version=5
 [application]
 
 config/name="XVI Fast Fall"
+run/main_scene="uid://b6wywkxycg7s1"
 config/features=PackedStringArray("4.7")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=720
+window/size/viewport_height=1280
+window/stretch/aspect="expand"
+window/handheld/orientation=1
 
 [dotnet]
 
 project/assembly_name="XVI Fast Fall"
+
+[physics]
+
+2d/run_on_separate_thread=true
+3d/run_on_separate_thread=true
+3d/physics_engine="Dummy"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+2d/snap/snap_2d_transforms_to_pixel=true
