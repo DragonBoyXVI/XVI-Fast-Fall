@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bnqk4y0lynem4"]
+
+[ext_resource type="Script" uid="uid://sh7t8ginqbxr" path="res://Player/player.gd" id="1_gwnis"]
+[ext_resource type="Texture2D" uid="uid://b4lk8m31rrhj6" path="res://icon.svg" id="1_l8h54"]
+[ext_resource type="Script" uid="uid://da7mvybob7fwr" path="res://Movement/MovementComponent.gd" id="2_4ntmi"]
+[ext_resource type="Script" uid="uid://c1v720exdvjg1" path="res://DragonXVI-Godot/StateMachines/state_machine.gd" id="3_btcbx"]
+
+[node name="Player" type="Node2D" unique_id=1428343973]
+script = ExtResource("1_gwnis")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=661874409]
+texture = ExtResource("1_l8h54")
+
+[node name="MovementComponent" type="Node" parent="." unique_id=809220184 node_paths=PackedStringArray("target_node")]
+script = ExtResource("2_4ntmi")
+target_node = NodePath("..")
+metadata/_custom_type_script = "uid://da7mvybob7fwr"
+
+[node name="StateMachine" type="Node" parent="." unique_id=826368200]
+script = ExtResource("3_btcbx")
+metadata/_custom_type_script = "uid://c1v720exdvjg1"
