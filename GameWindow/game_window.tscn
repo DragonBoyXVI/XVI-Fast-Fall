@@ -2,7 +2,7 @@
 
 [ext_resource type="Shader" uid="uid://bi2taa4hnunqs" path="res://XVI Assets/Shaders/canvas_animation.gdshader" id="1_62kum"]
 [ext_resource type="Texture2D" uid="uid://b4lk8m31rrhj6" path="res://icon.svg" id="2_gjocd"]
-[ext_resource type="PackedScene" uid="uid://bjs0ghhu8init" path="res://test.tscn" id="3_gjocd"]
+[ext_resource type="PackedScene" uid="uid://b0vhqwwgptmo0" path="res://GameRoot/game_root.tscn" id="3_gjocd"]
 [ext_resource type="Script" uid="uid://d3kesyqgaanbp" path="res://XVI Assets/Scripts/fps_label.gd" id="3_xtjd8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ua5yu"]
@@ -70,7 +70,7 @@ size_2d_override = Vector2i(720, 1280)
 size_2d_override_stretch = true
 render_target_update_mode = 4
 
-[node name="test" parent="AspectRatioContainer/SubViewportContainer/SubViewport" unique_id=736361735 instance=ExtResource("3_gjocd")]
+[node name="GameRoot" parent="AspectRatioContainer/SubViewportContainer/SubViewport" unique_id=1389212323 instance=ExtResource("3_gjocd")]
 
 [node name="FpsLabel" type="Label" parent="." unique_id=147655126]
 layout_mode = 0

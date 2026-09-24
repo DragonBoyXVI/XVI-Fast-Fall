@@ -2,10 +2,11 @@
 
 [ext_resource type="Script" uid="uid://cp3swtcfmakrk" path="res://GameRoot/game_root.gd" id="1_6mbnm"]
 
-[node name="GameRoot" type="Node2D" unique_id=1389212323 node_paths=PackedStringArray("_true_screen_cover")]
+[node name="GameRoot" type="Node2D" unique_id=1389212323 node_paths=PackedStringArray("_screen_covers_root", "_true_screen_cover")]
 editor_description = "The root of where game logic starts.
 Manages things like the active scene."
 script = ExtResource("1_6mbnm")
+_screen_covers_root = NodePath("CanvasLayer/ScreenCovering")
 _true_screen_cover = NodePath("CanvasLayer/ScreenCovering/TrueCover")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=777336343]
