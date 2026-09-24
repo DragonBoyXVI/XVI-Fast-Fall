@@ -1,0 +1,3 @@
+[submodule "DragonXVI-Godot"]
+	path = DragonXVI-Godot
+	url = https://github.com/DragonBoyXVI/DragonXVI-Godot.git
